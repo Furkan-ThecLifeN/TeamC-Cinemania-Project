@@ -1,0 +1,183 @@
+/* hero css */
+
+.hero-section {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 2rem 1.5rem;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+/* Başlık */
+.hero-title {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.hero-rating {
+  display: flex;
+  gap: 0.2rem;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.star {
+  font-family: sans-serif;
+  position: relative;
+  display: inline-block;
+}
+
+.star.full,
+.star.half::before {
+  background: linear-gradient(to right, #F84119 , #F89F19 68%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.star.empty {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); /* gri boş yıldız çerçevesi */
+}
+
+.star.half {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+.star.half::before {
+  content: '★';
+  position: absolute;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+}
+
+
+/* Açıklama */
+.hero-overview {
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* Butonlar */
+.hero-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.hero-button {
+  padding: 0.6rem 1.2rem;
+  background: #e50914;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-button:hover {
+  background: #bf0810;
+}
+
+/* İkinci buton beyaz stil */
+.hero-button:nth-child(2) {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.hero-button:nth-child(2):hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ------------------------- */
+/* Responsive Kırılma Noktaları */
+/* ------------------------- */
+
+/* Mobil: 375px - 767px */
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 70vh;
+    padding: 2rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-overview {
+    font-size: 0.9rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Tablet: 768px - 1279px */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hero-section {
+    padding: 3rem 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-overview {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+  }
+
+  .hero-button {
+    width: auto;
+  }
+}
+
+/* Masaüstü: 1280px ve üstü */
+@media (min-width: 1280px) {
+  .hero-section {
+    padding: 4rem;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-overview {
+    font-size: 1.1rem;
+  }
+}
