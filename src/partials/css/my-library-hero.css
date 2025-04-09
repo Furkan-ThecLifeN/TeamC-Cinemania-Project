@@ -1,0 +1,53 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #000;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hero section */
+.hero-section {
+  width: 100%;
+  position: relative;
+}
+
+#hero-img img {
+  width: 100%;
+  height: auto;
+  
+  
+}
+
+.hero-content-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  max-width: 500px;
+}
+
+.hero-content-wrapper h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-content-wrapper p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.hero-content-wrapper h1 p::after {
+ background: linear-gradient(80.53deg, #111111 31.92%, rgba(17, 17, 17, 0) 72.35%);
+
+}

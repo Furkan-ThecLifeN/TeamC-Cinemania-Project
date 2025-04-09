@@ -1,0 +1,153 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 20px 40px;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.icon-misir {
+  width: 48;
+  height: 48;
+}
+
+span {
+  width: 114;
+  height: 28;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  color: #ffffff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  color: #b7b7b7;
+  width: 262;
+  height: 16;
+  gap: 40px;
+}
+
+.nav-links li a {
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #f87719;
+}
+
+/* Menu button (for future responsiveness) */
+.menu-btn {
+  display: none;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  width: 60;
+  height: 24;
+  background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+
+
+}
+
+.switch-images {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
+.icon-moon,
+.icon-sun {
+  width: 20px;
+}
+
+.icon-elips {
+  width: 30px;
+  position: absolute;
+  left: 22px;
+  transition: left 0.3s;
+}
+
+/* Dark theme styles */
+body.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+
+body.light-mode .navbar {
+  background-color: #fff;
+}
+
+body.light-mode .nav-links li a:hover,
+body.light-mode .nav-links li a.active {
+  color: #f9c200;
+}
+/* Mobil için gizli menü */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
