@@ -106,6 +106,7 @@ h6 {
   color: var(--color-1);
 }
 .film-grid {
+  width: 280px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 10px;
@@ -125,25 +126,45 @@ h6 {
   justify-content: center;
 }
 
-.film-list {
-  width: 280px;
 
+
+.film-grid {
+  width: 280px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 10px;
+  
+}
+.movieCard {
+ 
+  height: auto;
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+   
+  );
+ 
+  
+  
 }
 
-.movieCard{
-  width: 280px;
-  height: auto;
-  border-radius: 5px;
+.movie{
+  border:10px solid red;
+
+}
+.movie-image {
+}
+.movieCard p {
+  word-wrap: break-word;
+}
+.about {
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: ;
 }
-.movieCard img.movie-image{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+
 .empty-message {
   width: 280px;
 }
