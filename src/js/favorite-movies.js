@@ -1,3 +1,4 @@
+
 const container = document.getElementById('film-list');
 let page = 1;
 const loadBtn = document.querySelector('.load-btn');
@@ -52,33 +53,36 @@ function displayMovies(movies) {
   container.innerHTML = '';
   message.innerHTML = '';
   movies.forEach(movie => {
-    const movieCard = document.createElement('div');
-
-    movieCard.innerHTML = `
-      <img class="movie-image" alt="${
-        movie.original_title
-      }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/>
+    const movieCard = document.createElement('li');
+    const filmCard= document.createElement("div");
+    filmCard.innerHTML = `
+    <a href="https://image.tmdb.org/t/p/original/${movie.poster_path} class="lightbox"><img class="movie-image" alt="${
+      movie.original_title
+    }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/></a>
       <h3>${movie.original_title}</h3>
       
       <p class="popularity" >Populrity ${movie.popularity}</p>
       <p class="genre">${movie.genre_ids.map(id => genreMap[id]).join(',')}|${
       movie.release_date.split('-')[0]
     }</p>`;
+    movieCard.classList.add('movieCard');
+    filmCard.classList.add("filmCard");
+    movieCard.appendChild(filmCard);
     container.appendChild(movieCard);
+    
   });
 }
-
 
 // <p class="votes" >Vote/Votes  ${movie.vote_count}/${movie.vote_average}</p>
 // <p class="about" >ABOUT ${movie.overview}</p>
 //Showing single movie card
-const filmCard = document.querySelectorAll('.movie-image');
-filmCard.addEventListener('click', () => {});
+const card = document.querySelectorAll('.filmCard');
+card.addEventListener('click', () => {});
 
 //user will see if there is no movie in library
 
 function showEmptyLibraryMessage() {
-  const markup = `<p class="markup">OOOPS..<br>We are very sorry!<br>You don’t have any movies at your library</p>
+  const markup = `<p class="markup"><span>OOOPS..</span><span>We are very sorry!</span><span>You don’t have any movies at your library</span></p>
   <button type="button" class="searchBtn">Search Movie</button>`;
   message.innerHTML = markup;
   const searchBtn = document.querySelector('.searchBtn');
