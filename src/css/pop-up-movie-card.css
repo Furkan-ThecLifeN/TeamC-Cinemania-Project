@@ -41,12 +41,18 @@
 .modal-close-btn {
     fill: #000000;
 }
+.dark-theme .modal-close-btn {
+    fill: #ffffff;
+}
 
 .modal-details__container {
     background-color: #171717;
     color: #ffffff;
 }
-
+.light-theme .modal-details__container {
+    background-color: #ffffff;
+    color: #111111;
+}
 
 /* Close Button */
 .modal-details__close {
@@ -60,6 +66,9 @@
     cursor: pointer;
     color: #ffffff;
     transition: color 0.3s ease;
+}
+.light-theme .modal-details__close {
+    color: #111111;
 }
 /* Content Layout */
 .modal-details__content {
@@ -122,6 +131,10 @@
     background-color: #282828;
     border-radius: 5px;
 }
+.light-theme .modal-details__votes {
+    background-color: #f8f8f8;
+    color: #111111;
+}
 
 /* About Section */
 .modal-details__about-title {
@@ -155,7 +168,9 @@
 .modal-details__library-btn:hover {
     background: #f87719;
 }
-
+.light-theme .modal-details__library-btn {
+    color: #111111;
+}
 .modal-details__library-btn[data-action='remove'] {
     background: #f87719;
 }
