@@ -1,4 +1,3 @@
-// TMDB'den haftalık popüler filmleri çeken fonksiyon
 async function fetchWeeklyTrendingMovies() {
   const response = await fetch(
     'https://api.themoviedb.org/3/trending/movie/week?language=tr-TR',
@@ -16,7 +15,6 @@ async function fetchWeeklyTrendingMovies() {
   return data.results;
 }
 
-// Tür ID'lerini isimlere çevir
 const genreMap = {
   28: 'Aksiyon',
   12: 'Macera',
@@ -69,7 +67,6 @@ async function loadTrendingMovies() {
   const moviesContainer = document.querySelector('.weekly-movies-container');
   moviesContainer.innerHTML = '';
 
-  // Ekran genişliğine göre film sayısını belirle
   const screenWidth = window.innerWidth;
   let numberOfMovies = 3;
   if (screenWidth <= 768) {
@@ -108,8 +105,6 @@ async function loadTrendingMovies() {
   });
 }
 
-// Ekran boyutu değiştiğinde yeniden yükle
 window.addEventListener('resize', loadTrendingMovies);
 
-// Sayfa yüklendiğinde çalıştır
 loadTrendingMovies();
