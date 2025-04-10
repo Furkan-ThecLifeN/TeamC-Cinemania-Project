@@ -1,8 +1,8 @@
 @import url('../src/css/header.css');
-@import url('./css/header.css');
+@import url('./css/weekly-trends.css');
+@import url('./css/footer.css');
 
-
-@import url('https://fonts.googleapis.com/css2?family{}=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   /* Colors */
@@ -33,6 +33,15 @@ body {
   color: var(--primary-color);
   margin: 0;
   padding: 0;
+}
+
+html, body {
+  height: 100%; /* Sayfanın tamamını kapsaması için */
+  overflow-x: hidden; /* Yalnızca yatay kaydırmayı engelle */
+}
+
+body {
+  overflow-y: auto; /* Yalnızca dikey kaydırma çubuğuna izin ver */
 }
 
 p,
