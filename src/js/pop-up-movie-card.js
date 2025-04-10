@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     37: 'Western',
   };
 
+  const myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
   // Modal kapatma
   function closeModal() {
     modal.classList.remove('active');
