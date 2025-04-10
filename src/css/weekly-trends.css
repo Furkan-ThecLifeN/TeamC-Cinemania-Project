@@ -1,3 +1,13 @@
+#weekly-trends {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px; /* Üstten boşluk bırakır */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+
 .weekly-trends-section {
   display: flex;
   justify-content: center;

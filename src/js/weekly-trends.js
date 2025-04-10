@@ -108,3 +108,27 @@ async function loadTrendingMovies() {
 window.addEventListener('resize', loadTrendingMovies);
 
 loadTrendingMovies();
+
+// Dinamik içerik yükleme fonksiyonu
+const loadContent = async () => {
+  const target = document.getElementById('weekly-trends');
+  if (!target) return;
+
+  try {
+    // 1. HTML içeriğini yükle
+    target.innerHTML = await fetch('./partials/weekly-trends.html').then(r => r.text());
+
+    // 2. JS dosyasını dinamik olarak yükle
+    const script = document.createElement('script');
+    script.src = './js/weekly-trends.js';
+    script.onload = () => console.log('JS başarıyla yüklendi!');
+    script.onerror = () => console.error('JS yükleme hatası!');
+    document.body.appendChild(script);
+
+  } catch (e) {
+    console.error('İçerik yükleme hatası:', e);
+  }
+};
+
+// Sayfa yüklendiğinde çalıştır
+window.addEventListener('DOMContentLoaded', loadContent);

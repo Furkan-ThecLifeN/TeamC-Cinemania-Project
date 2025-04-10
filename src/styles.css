@@ -1,6 +1,8 @@
 @import url('../src/css/header.css');
 @import url('./css/weekly-trends.css');
 @import url('./css/footer.css');
+@import url('./css/header.css');
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -63,3 +65,5 @@ h6 {
   margin: 0;
   padding: 0;
 }
+
+
