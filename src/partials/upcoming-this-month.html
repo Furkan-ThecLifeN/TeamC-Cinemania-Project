@@ -11,14 +11,13 @@
   <link rel="stylesheet" href="../css/upcoming-this-month.css" />
 </head>
 
-<body class="light">
+<body>
+  <div id="overlay" class="hidden"></div>
   <section class="upcoming">
     <h2>UPCOMING THIS MONTH</h2>
-    <div class="upcoming-movie-card">
-      <!-- Film görseli -->
-      <img src="../upcoming-card.jpg" alt="Movie Poster" class="movie-poster" />
+    <div class="upcoming-movie-card upcoming-content hidden">
+      <div class="movie-poster"></div>
 
-      <!-- Bilgiler için yeni wrapper eklendi -->
       <div class="movie-details">
         <h3 class="upcoming-movie-name">Movie Name</h3>
 
@@ -43,22 +42,20 @@
             <span class="info-genre-value">Comedy, action</span>
           </div>
         </div>
-
         <h4>ABOUT</h4>
         <p class="movieabout">Movie About</p>
-        <button class="btn-upcoming">Add to My Library</button>
+        <button class="btn-upcoming hidden-button">Add to My Library</button>
       </div>
     </div>
 
-    <!-- Film bulunamazsa gösterilecek mesaj -->
     <div id="no-movie-message" class="movie-hidden">
       <p>Üzgünüz, bu ay için gösterilecek bir film bulunamadı.</p>
     </div>
 
-    <!-- Tema butonu -->
-    <button id="themeToggle">Toggle Theme</button>
-
-    <!-- Script -->
+    <div id="notification" class="notification hidden">
+      <span class="checkmark">✔</span>
+      Add to My Library
+    </div>
     <script src="../js/upcoming-this-month.js" type="module"></script>
   </section>
 </body>
