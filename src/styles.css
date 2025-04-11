@@ -1,9 +1,10 @@
-@import url('../src/css/header.css');
 @import url('./css/header.css');
+@import url('./css/weekly-trends.css');
+@import url('./css/my-library-hero.css');
+@import url('./css/footer.css');
 @import url('./css/hero.css');
 
-
-@import url('https://fonts.googleapis.com/css2?family{}=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   /* Colors */
@@ -36,6 +37,16 @@ body {
   padding: 0;
 }
 
+html,
+body {
+  height: 100%; /* Sayfanın tamamını kapsaması için */
+  overflow-x: hidden; /* Yalnızca yatay kaydırmayı engelle */
+}
+
+body {
+  overflow-y: auto; /* Yalnızca dikey kaydırma çubuğuna izin ver */
+}
+
 p,
 span {
   margin: 0;
@@ -54,4 +65,31 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+}
+
+.hero-section {
+  width: 1280px;
+  height: 720px;
+}
+
+.weekly-trends-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 20px;
+}
+
+.upcoming-section {
+  width: 1280px;
+  height: 720px;
+}
+
+.catolog-section {
+  width: 1280px;
+  height: 3000px;
+}
+
+.favorite-Movies-section {
+  width: 1280px;
+  height: 2000px;
 }

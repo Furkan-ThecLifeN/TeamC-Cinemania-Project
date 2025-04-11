@@ -1,77 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const menuIcon = document.querySelector('.mobile-menu-icon use');
-  const body = document.body;
+  const switcher = document.getElementById('theme-switcher');
 
-  function toggleMenu() {
-    const isOpen = mobileMenu.classList.contains('is-open');
-    const svgHref = menuIcon.getAttribute('href').split('#')[0];
-
-    mobileMenu.classList.toggle('is-open');
-    mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
-
-    menuIcon.setAttribute(
-      'href',
-
-      isOpen ? svgHref + '#icon-menu' : svgHref + '#icon-close'
-    );
-
-    body.style.overflow = isOpen ? '' : 'hidden';
+  if (!switcher) {
+    console.error('theme-switcher elementi bulunamadı!');
+    return;
   }
 
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', e => {
-      e.stopPropagation();
-      toggleMenu();
-    });
-
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        toggleMenu();
-      });
-    });
-
-    document.addEventListener('click', e => {
-      if (
-        mobileMenu.classList.contains('is-open') &&
-        !e.target.closest('.mobile-menu') &&
-        !e.target.closest('.mobile-menu-btn')
-      ) {
-        toggleMenu();
-      }
-    });
-
-    mobileMenu.addEventListener('click', e => {
-      e.stopPropagation();
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
-        toggleMenu();
-      }
-    });
-  }
-
-  const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
+  switcher.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
   });
 
-  if (currentPath.includes('catalog.html')) {
-    document.querySelectorAll('[data-page="catalog"]').forEach(link => {
+  // Menü butonuna tıklanınca navbar içinde .active sınıfı eklenir ve nav-menu görünür olur
+  const menuButton = document.querySelector('.btn');
+  const navbar = document.querySelector('.navbar');
+
+  menuButton.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+
+  // Navbar bağlantılarında active sınıfını değiştirme
+  const navLinks = document.querySelectorAll('.nav-menu a');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Tüm linklerden active sınıfını kaldır
+      navLinks.forEach(link => link.classList.remove('active'));
+      // Tıklanan linke active sınıfını ekle
       link.classList.add('active');
     });
-  } else if (currentPath.includes('mylibrary.html')) {
-    document.querySelectorAll('[data-page="library"]').forEach(link => {
-      link.classList.add('active');
-    });
-  } else {
-    document.querySelectorAll('[data-page="home"]').forEach(link => {
-      link.classList.add('active');
-    });
+  });
+
+  // Sayfa yüklendiğinde, hangi sayfada olduğuna göre aktif linki ayarla
+  const currentPage = window.location.pathname.split('/').pop();
+  const activeLink = Array.from(navLinks).find(link =>
+    link.href.includes(currentPage)
+  );
+
+  if (activeLink) {
+    activeLink.classList.add('active');
   }
 });
