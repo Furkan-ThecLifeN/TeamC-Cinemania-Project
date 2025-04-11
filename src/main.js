@@ -1,4 +1,6 @@
 import './js/header';
+import './js/pop-up-movie-card';
+import './js/pop-up-trailer-card';
 import './js/catalog';
 import './js/weekly-trends';
 import './js/footer';import { renderHeroSection } from './js/hero.js';
