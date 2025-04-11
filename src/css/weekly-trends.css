@@ -1,10 +1,5 @@
 #weekly-trends {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 20px; /* Üstten boşluk bırakır */
-  min-height: 100vh;
-  box-sizing: border-box;
+  
 }
 
 
@@ -15,12 +10,17 @@
 }
 
 .weekly-trends {
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  max-width: 1280px;
+  width: 100%;
+  padding: 5%;
+  justify-content: center;
+  align-items: center;
 }
 
 .weekly-title {
