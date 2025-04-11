@@ -7,6 +7,7 @@ import './js/pop-up-trailer-card.js';
 import { renderUpcomingSection } from './js/upcoming-this-month.js';
 import { renderHeroSection } from './js/hero.js';
 
+renderHeroSection();
 
 renderUpcomingSection();
 
@@ -20,3 +21,6 @@ async function loadHTML(selector, url) {
   const html = await res.text();
   document.querySelector(selector).innerHTML = html;
 }
+
+
+
