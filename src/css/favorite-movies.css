@@ -192,7 +192,6 @@ h6 {
 .about {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: ;
 }
 
 .empty-message {
@@ -274,7 +273,6 @@ h6 {
   .about {
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: ;
   }
 
   .empty-message {
@@ -341,6 +339,7 @@ h6 {
 
   .movie {
   }
+
   .movie-image {
     width: 100%;
   }
