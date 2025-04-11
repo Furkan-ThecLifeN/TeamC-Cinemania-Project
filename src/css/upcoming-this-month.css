@@ -1,10 +1,4 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #111111;
-  color: #ffffff;
-}
+
 
 body.light {
   background-color: #ffffff;
@@ -28,39 +22,45 @@ body.light {
 }
 
 .btn-upcoming.default {
-  background: linear-gradient(135deg, #ffc226, #f34119) padding-box,
-    linear-gradient(135deg, #ffc226, #f34119) border-box;
+  background:
+      linear-gradient(135deg, #FFC226, #F34119) padding-box,
+      linear-gradient(135deg, #FFC226, #F34119) border-box;
   color: #111;
 }
 
 .btn-upcoming.hovered {
-  background: linear-gradient(#111111, #111111) padding-box,
-    linear-gradient(135deg, #ffc226, #f34119) border-box;
+  background:
+      linear-gradient(#111111, #111111) padding-box,
+      linear-gradient(135deg, #FFC226, #F34119) border-box;
   color: #ffffff;
 }
 
 .btn-upcoming.clicked {
-  background: linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(135deg, #ffc226, #f34119) border-box;
-  color: #f87719;
+  background:
+      linear-gradient(#ffffff, #ffffff) padding-box,
+      linear-gradient(135deg, #FFC226, #F34119) border-box;
+  color: #F87719;
 }
 
 body.light .btn-upcoming.default {
-  background: linear-gradient(135deg, #ffc226, #f34119) padding-box,
-    linear-gradient(135deg, #ffc226, #f34119) border-box;
+  background:
+      linear-gradient(135deg, #FFC226, #F34119) padding-box,
+      linear-gradient(135deg, #FFC226, #F34119) border-box;
   color: #111;
 }
 
 body.light .btn-upcoming.hovered {
-  background: linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(135deg, #ffc226, #f34119) border-box;
+  background:
+      linear-gradient(#ffffff, #ffffff) padding-box,
+      linear-gradient(135deg, #FFC226, #F34119) border-box;
   color: #111;
 }
 
 body.light .btn-upcoming.clicked {
-  background: linear-gradient(#111111, #111111) padding-box,
-    linear-gradient(135deg, #111111, #111111) border-box;
-  color: #f87719;
+  background:
+      linear-gradient(#111111, #111111) padding-box,
+      linear-gradient(135deg, #111111, #111111) border-box;
+  color: #F87719;
 }
 
 .hidden-button {
@@ -90,7 +90,7 @@ body.light .movie-poster {
   text-transform: uppercase;
 }
 
-.movie-info > div {
+.movie-info>div {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
@@ -103,7 +103,7 @@ body.light .movie-poster {
 
 .info-label {
   width: 172px;
-  color: #b7b7b7;
+  color: #B7B7B7;
 }
 
 body.light .info-label {
@@ -111,7 +111,7 @@ body.light .info-label {
 }
 
 .info-date-value {
-  color: #f87719;
+  color: #F87719;
   text-transform: uppercase;
 }
 
@@ -129,7 +129,7 @@ body.light .info-label {
 }
 
 body.light .vote-box {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
   color: #282828;
 }
 
@@ -138,7 +138,7 @@ body.light .vote-box {
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: 0;
-  color: #f8f8f8;
+  color: #F8F8F8;
   padding-right: 60px;
 }
 
@@ -148,7 +148,7 @@ body.light .movieabout {
 
 .movie-details h4 {
   margin-top: 20px;
-  color: #b7b7b7;
+  color: #B7B7B7;
 }
 
 body.light .movie-details h4 {
@@ -198,7 +198,7 @@ body.light .movie-details h4 {
   color: #065519;
   padding: 40px 70px;
   border-radius: 35px;
-  box-shadow: 0 6px 18px rgba(2, 49, 15, 0.2);
+  box-shadow: 0 6px 18px rgba(2, 49, 15, 0.20);
   font-size: 50px;
   font-weight: 500;
   z-index: 999;
@@ -220,30 +220,30 @@ body.light .movie-details h4 {
 
 @keyframes drawTick {
   0% {
-    width: 0;
-    opacity: 1;
+      width: 0;
+      opacity: 1;
   }
 
   100% {
-    width: 60px;
-    opacity: 1;
+      width: 60px;
+      opacity: 1;
   }
 }
 
 @keyframes showNotification {
   0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
   }
 
   50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
   }
 
   100% {
-    opacity: 1;
-    transform: translate(-50%, -50%);
+      opacity: 1;
+      transform: translate(-50%, -50%);
   }
 }
 
@@ -254,457 +254,99 @@ body.light .movie-details h4 {
 /* === TABLET === */
 @media (min-width: 768px) and (max-width: 1280px) {
   .upcoming {
-    padding: 32px;
-    margin: 0 auto;
+      padding: 32px;
+      margin: 0 auto;
   }
 
   .upcoming-movie-card {
-    flex-direction: column;
-    gap: 32px;
+      flex-direction: column;
+      gap: 32px;
   }
 
   .movie-poster {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
   }
 
   .movie-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
   }
 
-  .movie-info > div {
-    width: calc(50% - 12px);
-    display: flex;
-    align-items: center;
+  .movie-info>div {
+      width: calc(50% - 12px);
+      display: flex;
+      align-items: center;
   }
 
   .movieabout {
-    width: 100%;
-    max-width: 600px;
-    word-wrap: break-word;
-    white-space: normal;
-    text-align: left;
-    margin: 0 auto;
+      width: 100%;
+      max-width: 600px;
+      word-wrap: break-word;
+      white-space: normal;
+      text-align: left;
+      margin: 0 auto;
   }
 }
 
 /* === MOBİL === */
 @media (max-width: 767px) {
   .movie-poster {
-    width: 100%;
-    max-width: 330px;
-    height: 402px;
-    margin-left: 20px;
+      width: 100%;
+      max-width: 330px;
+      height: 402px;
+      margin-left: 20px;
   }
 
   .upcoming-movie-name {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 1;
-    letter-spacing: 0;
-    padding-left: 22px;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: 0;
+      padding-left: 22px;
   }
 
   .upcoming-movie-card {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
   }
 
-  .movie-info > div {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
-    margin-top: 20px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.2;
-    letter-spacing: 0;
-    padding-left: 22px;
+  .movie-info>div {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: baseline;
+      margin-top: 20px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      padding-left: 22px;
   }
 
   .movieabout {
-    width: 100%;
-    max-width: 280px;
-    word-wrap: break-word;
-    white-space: normal;
-    text-align: left;
-    padding-left: 22px;
+      width: 100%;
+      max-width: 280px;
+      word-wrap: break-word;
+      white-space: normal;
+      text-align: left;
+      padding-left: 22px;
   }
 
   .movie-details h4 {
-    padding-left: 20px;
+      padding-left: 20px;
   }
 
   .btn-upcoming {
-    margin-left: 21px;
+      margin-left: 21px;
   }
 
   .upcoming h2 {
-    padding-left: 20px;
+      padding-left: 20px;
   }
-}
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #111111;
-    color: #ffffff;
-}
-
-body.light {
-    background-color: #ffffff;
-    color: #111111;
-}
-
-/* BUTON */
-
-.btn-upcoming {
-    width: 155px;
-    height: 40px;
-    border-radius: 74px;
-    border: 1px solid transparent;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1;
-    cursor: pointer;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-}
-
-.btn-upcoming.default {
-    background:
-        linear-gradient(135deg, #FFC226, #F34119) padding-box,
-        linear-gradient(135deg, #FFC226, #F34119) border-box;
-    color: #111;
-}
-
-.btn-upcoming.hovered {
-    background:
-        linear-gradient(#111111, #111111) padding-box,
-        linear-gradient(135deg, #FFC226, #F34119) border-box;
-    color: #ffffff;
-}
-
-.btn-upcoming.clicked {
-    background:
-        linear-gradient(#ffffff, #ffffff) padding-box,
-        linear-gradient(135deg, #FFC226, #F34119) border-box;
-    color: #F87719;
-}
-
-body.light .btn-upcoming.default {
-    background:
-        linear-gradient(135deg, #FFC226, #F34119) padding-box,
-        linear-gradient(135deg, #FFC226, #F34119) border-box;
-    color: #111;
-}
-
-body.light .btn-upcoming.hovered {
-    background:
-        linear-gradient(#ffffff, #ffffff) padding-box,
-        linear-gradient(135deg, #FFC226, #F34119) border-box;
-    color: #111;
-}
-
-body.light .btn-upcoming.clicked {
-    background:
-        linear-gradient(#111111, #111111) padding-box,
-        linear-gradient(135deg, #111111, #111111) border-box;
-    color: #F87719;
-}
-
-.hidden-button {
-    visibility: hidden;
-}
-.movie-poster {
-    width: 100%;
-    height: 458px;
-    max-height: 100%;
-    border-radius: 5px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(0.9);
-}
-
-body.light .movie-poster {
-    filter: none;
-}
-
-/* METİN STİLLERİ */
-.upcoming-movie-name {
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 1;
-    letter-spacing: 0;
-    text-transform: uppercase;
-}
-
-.movie-info>div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    margin-top: 12px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.2;
-    letter-spacing: 0;
-}
-
-.info-label {
-    width: 172px;
-    color: #B7B7B7;
-}
-
-body.light .info-label {
-    color: #282828;
-}
-
-.info-date-value {
-    color: #F87719;
-    text-transform: uppercase;
-}
-
-.info-vote-value {
-    width: 172px;
-}
-
-.vote-box {
-    width: 172px;
-    background-color: #ffffff;
-    padding: 1px 8px;
-    gap: 10px;
-    border-radius: 5px;
-    color: #111111;
-}
-
-body.light .vote-box {
-    background-color: #F8F8F8;
-    color: #282828;
-}
-
-.movieabout {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.43;
-    letter-spacing: 0;
-    color: #F8F8F8;
-    padding-right: 60px;
-}
-
-body.light .movieabout {
-    color: #282828;
-}
-
-.movie-details h4 {
-    margin-top: 20px;
-    color: #B7B7B7;
-}
-
-body.light .movie-details h4 {
-    color: #282828;
-}
-
-.upcoming {
-    width: 100%;
-    height: 100%;
-    margin: 32px;
-    box-sizing: border-box;
-}
-
-.upcoming-movie-card {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    align-items: flex-start;
-}
-
-.movie-hidden {
-    display: none;
-}
-
-.upcoming-content.hidden {
-    visibility: hidden;
-}
-
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 998;
-    display: none;
-}
-
-.notification {
-    position: fixed;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(212, 231, 217, 0.9);
-    border: 3px solid #282828;
-    color: #065519;
-    padding: 40px 70px;
-    border-radius: 35px;
-    box-shadow: 0 6px 18px rgba(2, 49, 15, 0.20);
-    font-size: 50px;
-    font-weight: 500;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    opacity: 0;
-    animation: showNotification 1s ease-in-out forwards;
-}
-
-.notification .checkmark {
-    font-size: 70px;
-    opacity: 0;
-    width: 0;
-    overflow: hidden;
-    display: inline-block;
-    animation: drawTick 1s ease-in-out forwards;
-}
-
-@keyframes drawTick {
-    0% {
-        width: 0;
-        opacity: 1;
-    }
-
-    100% {
-        width: 60px;
-        opacity: 1;
-    }
-}
-
-@keyframes showNotification {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-    }
-
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-/* === TABLET === */
-@media (min-width: 768px) and (max-width: 1280px) {
-    .upcoming {
-        padding: 32px;
-        margin: 0 auto;
-    }
-
-    .upcoming-movie-card {
-        flex-direction: column;
-        gap: 32px;
-    }
-
-    .movie-poster {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-    }
-
-    .movie-info {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px 24px;
-    }
-
-    .movie-info>div {
-        width: calc(50% - 12px);
-        display: flex;
-        align-items: center;
-    }
-
-    .movieabout {
-        width: 100%;
-        max-width: 600px;
-        word-wrap: break-word;
-        white-space: normal;
-        text-align: left;
-        margin: 0 auto;
-    }
-}
-
-/* === MOBİL === */
-@media (max-width: 767px) {
-    .movie-poster {
-        width: 100%;
-        max-width: 330px;
-        height: 402px;
-        margin-left: 20px;
-    }
-
-    .upcoming-movie-name {
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 1;
-        letter-spacing: 0;
-        padding-left: 22px;
-    }
-
-    .upcoming-movie-card {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        align-items: flex-start;
-    }
-
-    .movie-info>div {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: baseline;
-        margin-top: 20px;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 1.2;
-        letter-spacing: 0;
-        padding-left: 22px;
-    }
-
-    .movieabout {
-        width: 100%;
-        max-width: 280px;
-        word-wrap: break-word;
-        white-space: normal;
-        text-align: left;
-        padding-left: 22px;
-    }
-
-    .movie-details h4 {
-        padding-left: 20px;
-    }
-
-    .btn-upcoming {
-        margin-left: 21px;
-    }
-
-    .upcoming h2 {
-        padding-left: 20px;
-    }
 }

@@ -1,12 +1,3 @@
-Genel Düzenleme
-body {
-    width: 100%;
-    /* max-width: 1280px; */
-    height: 5405px;
-    background: #111111;
-    overflow-x: hidden;
-}
-
 
 
 ul {
@@ -45,9 +36,9 @@ ul {
 
 .search-button {
     background: transparent;
-    /* Arka planı şeffaf yapıyoruz */
+    /* Arka planÄ± ÅŸeffaf yapÄ±yoruz */
     border: none;
-    /* Butonun kenarını kaldırıyoruz */
+    /* Butonun kenarÄ±nÄ± kaldÄ±rÄ±yoruz */
     padding: 0;
 }
 
@@ -55,7 +46,7 @@ ul {
     gap: 16px;
     margin-left: 16px;
     padding-bottom: 0px;
-
+    
 }
 
 
@@ -63,15 +54,15 @@ ul {
 /* Hover efekti */
 .search-button:hover {
     transform: scale(1.1);
-    /* Butonu biraz büyüt */
+    /* Butonu biraz bÃ¼yÃ¼t */
 }
 
-/* Active (Tıklama) efekti */
+/* Active (TÄ±klama) efekti */
 .search-button:active {
     transform: scale(0.95);
-    /* Butonu tıklandığında biraz küçült */
+    /* Butonu tÄ±klandÄ±ÄŸÄ±nda biraz kÃ¼Ã§Ã¼lt */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    /* Hafif bir gölge efekti */
+    /* Hafif bir gÃ¶lge efekti */
 }
 
 .year-select {
@@ -106,19 +97,19 @@ ul {
 /* Catalog container */
 .cata-menu {
     display: flex;
-    /* Flexbox ile kutucukları hizalarız */
+    /* Flexbox ile kutucuklarÄ± hizalarÄ±z */
     flex-wrap: wrap;
-    /* Taşan kutucukların bir alt satıra geçmesini sağlar */
+    /* TaÅŸan kutucuklarÄ±n bir alt satÄ±ra geÃ§mesini saÄŸlar */
     /* justify-content: space-between; */
-    /* Aralarındaki boşluğu eşitler */
+    /* AralarÄ±ndaki boÅŸluÄŸu eÅŸitler */
     gap: 20px;
-    /* Kutucuklar arasındaki boşluğu ayarlamak */
+    /* Kutucuklar arasÄ±ndaki boÅŸluÄŸu ayarlamak */
     max-width: 100%;
-    /* Kapsayıcının genişliği ekran genişliği ile sınırlı */
+    /* KapsayÄ±cÄ±nÄ±n geniÅŸliÄŸi ekran geniÅŸliÄŸi ile sÄ±nÄ±rlÄ± */
     padding: 20px;
-    /* İçerik kenar boşluğu */
+    /* Ä°Ã§erik kenar boÅŸluÄŸu */
     overflow: hidden;
-    /* Taşan elemanları gizler */
+    /* TaÅŸan elemanlarÄ± gizler */
     align-items: left;
 }
 
@@ -126,16 +117,16 @@ ul {
 
 .cata-flow img {
     width: 100%;
-    /* Resim, kutucuğa tam oturacak şekilde ayarlanır */
+    /* Resim, kutucuÄŸa tam oturacak ÅŸekilde ayarlanÄ±r */
     height: 100%;
-    /* Resmin yüksekliğini %70 olarak ayarlıyoruz */
+    /* Resmin yÃ¼ksekliÄŸini %70 olarak ayarlÄ±yoruz */
     border-top-left-radius: 8px;
-    /* Üst sol köşe yuvarlatılır */
+    /* Ãœst sol kÃ¶ÅŸe yuvarlatÄ±lÄ±r */
     border-top-right-radius: 8px;
-    /* Üst sağ köşe yuvarlatılır */
+    /* Ãœst saÄŸ kÃ¶ÅŸe yuvarlatÄ±lÄ±r */
     object-fit: cover;
-    /* Resmin orantılı şekilde kırpılmasını sağlar */
-
+    /* Resmin orantÄ±lÄ± ÅŸekilde kÄ±rpÄ±lmasÄ±nÄ± saÄŸlar */
+    
 }
 
 
@@ -143,46 +134,46 @@ ul {
 /* Movie card (kutucuk) */
 .cata-tab {
     width: 395px;
-    /* Her kutucuğun genişliğini 395px yapıyoruz */
+    /* Her kutucuÄŸun geniÅŸliÄŸini 395px yapÄ±yoruz */
     /* height: 574px; */
-    /* Her kutucuğun yüksekliğini 574px yapıyoruz */
+    /* Her kutucuÄŸun yÃ¼ksekliÄŸini 574px yapÄ±yoruz */
     background-color: transparent;
     /* Arka plan rengi */
     border-radius: 8px;
-    /* Kenarları yuvarlatır */
+    /* KenarlarÄ± yuvarlatÄ±r */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Gölgelendirme efekti */
+    /* GÃ¶lgelendirme efekti */
     transition: transform 0.3s ease;
-    /* Hover etkisi için geçiş ekler */
+    /* Hover etkisi iÃ§in geÃ§iÅŸ ekler */
     cursor: pointer;
     /* flex-grow: 0; */
     flex: 0 1 calc(33.33% - 20px);
-    /* Esnek bir şekilde büyüyüp küçülmesini sağlar */
+    /* Esnek bir ÅŸekilde bÃ¼yÃ¼yÃ¼p kÃ¼Ã§Ã¼lmesini saÄŸlar */
     display: flex;
-    /* İçeriği düzgün şekilde hizalamak için flexbox */
+    /* Ä°Ã§eriÄŸi dÃ¼zgÃ¼n ÅŸekilde hizalamak iÃ§in flexbox */
     flex-direction: column;
-    /* İçeriği dikey yönde hizalar */
-
+    /* Ä°Ã§eriÄŸi dikey yÃ¶nde hizalar */
+    
     height: auto;
 }
 
 /* Kutucuk hover efekti */
 .cata-tab:hover {
     transform: scale(1.05);
-    /* Kutucuk hover ile büyür */
+    /* Kutucuk hover ile bÃ¼yÃ¼r */
 }
 
-/* Resim kısmı */
+/* Resim kÄ±smÄ± */
 
 
-/* Bilgi kısmı */
+/* Bilgi kÄ±smÄ± */
 .cata-info {
     padding: 10px;
     /* padding-top: -50px; */
     text-align:left;
     /* Metni ortalar */
     height: 30%;
-    /* Bilgi kısmının yüksekliğini %30 olarak ayarlıyoruz */
+    /* Bilgi kÄ±smÄ±nÄ±n yÃ¼ksekliÄŸini %30 olarak ayarlÄ±yoruz */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -214,7 +205,7 @@ ul {
     color: white;
     margin-top: 8px;
     padding: 0 8px;
-
+    
 }
 
 .cata-cd-title {
@@ -225,15 +216,15 @@ ul {
 .left-info,
 .right-stars {
     width: auto;
-    /* Sabit genişliği kaldırdım */
+    /* Sabit geniÅŸliÄŸi kaldÄ±rdÄ±m */
     height: auto;
-    /* Sabit yüksekliği kaldırdım */
+    /* Sabit yÃ¼ksekliÄŸi kaldÄ±rdÄ±m */
     gap: 4px;
     font-size: 15px;
-    /* Daha küçük font boyutu */
+    /* Daha kÃ¼Ã§Ã¼k font boyutu */
     color: #B7B7B7;
     margin-top: -10px;
-    /* Üstten biraz boşluk */
+    /* Ãœstten biraz boÅŸluk */
 }
 
 .left-info {
@@ -243,9 +234,9 @@ ul {
 .right-stars {
     background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
     background-clip: text;
-    /* 👈 Standart olan bu */
+    /* ğŸ‘ˆ Standart olan bu */
     -webkit-background-clip: text;
-    /* 👈 Webkit için */
+    /* ğŸ‘ˆ Webkit iÃ§in */
     -webkit-text-fill-color: transparent;
 }
 
@@ -275,14 +266,14 @@ ul {
     transition: 0.3s;
 }
 
-/* Hover efekti: gradient dolgu + beyaz yazı */
+/* Hover efekti: gradient dolgu + beyaz yazÄ± */
 .pagination-btn:hover {
     background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
     color: white;
     border: none;
 }
 
-/* Aktif sayfa: gradient dolgu + beyaz yazı */
+/* Aktif sayfa: gradient dolgu + beyaz yazÄ± */
 .pagination-btn.active {
     background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
     color: white;
@@ -298,7 +289,7 @@ ul {
 
 .footer-text {
     color: #B7B7B7;
-
+    
     margin-top: 70px;
     text-align: center;
 }
@@ -316,7 +307,7 @@ ul {
 
 
 
-/* Responsive Tasarım - Mobil */
+/* Responsive TasarÄ±m - Mobil */
 @media (max-width: 767px) {
     .search-box {
         width: 100%;
@@ -395,7 +386,7 @@ ul {
     }
 }
 
-/* Responsive Tasarım - Tablet */
+/* Responsive TasarÄ±m - Tablet */
 @media (max-width: 1024px) {
     .search-box {
         width: 100%;

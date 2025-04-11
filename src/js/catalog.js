@@ -1,13 +1,10 @@
-function populateYearSelect(
-  startYear = new Date().getFullYear(),
-  endYear = 1980
-) {
-  const yearSelect = document.getElementById('yearSelect');
+function populateYearSelect(startYear = new Date().getFullYear(), endYear = 1980) {
+  const yearSelect = document.getElementById("yearSelect");
   if (!yearSelect) return;
 
   yearSelect.innerHTML = `<option value="">Yıl Seç</option>`;
   for (let year = startYear; year >= endYear; year--) {
-    const option = document.createElement('option');
+    const option = document.createElement("option");
     option.value = year;
     option.textContent = year;
     yearSelect.appendChild(option);
@@ -17,46 +14,31 @@ function populateYearSelect(
 function initCatalog() {
   populateYearSelect(); // Dinamik yıl listesi oluşturulur
 
-  const catalogList = document.querySelector('.cata-menu');
-  const pagination = document.getElementById('pagination');
-  const movieModal = document.getElementById('movieModal');
-  const closeModal = document.getElementById('close');
+  const catalogList = document.querySelector(".cata-menu");
+  const pagination = document.getElementById("pagination");
+  const movieModal = document.getElementById("movieModal");
+  const closeModal = document.getElementById("close");
 
-  const searchForm = document.querySelector('.search-form');
-  const searchInput = document.getElementById('searchInput');
-  const yearSelect = document.getElementById('yearSelect');
+  const searchForm = document.querySelector(".search-form");
+  const searchInput = document.getElementById("searchInput");
+  const yearSelect = document.getElementById("yearSelect");
 
   if (!catalogList || !pagination) {
     return setTimeout(initCatalog, 100);
   }
 
-  const bearerToken =
-    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjdiM2EyZDhhOGJjOGJjNTc2YWNkNjhlNzMzYmMwMiIsIm5iZiI6MTc0Mzc2OTgzNC44MDgsInN1YiI6IjY3ZWZkMGVhNjZkNzAxNDJiNjk5M2VkZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f11GA6Wa8xeIa9eYADLU7gMUYYBi_DWny7D4WtKA3sU';
+  const bearerToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjdiM2EyZDhhOGJjOGJjNTc2YWNkNjhlNzMzYmMwMiIsIm5iZiI6MTc0Mzc2OTgzNC44MDgsInN1YiI6IjY3ZWZkMGVhNjZkNzAxNDJiNjk5M2VkZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.f11GA6Wa8xeIa9eYADLU7gMUYYBi_DWny7D4WtKA3sU';
 
   let currentPage = 1;
   let currentQuery = '';
   let selectedYear = '';
 
   const genreMap = {
-    28: 'Aksiyon',
-    12: 'Macera',
-    16: 'Animasyon',
-    35: 'Komedi',
-    80: 'Suç',
-    99: 'Belgesel',
-    18: 'Dram',
-    10751: 'Aile',
-    14: 'Fantastik',
-    36: 'Tarih',
-    27: 'Korku',
-    10402: 'Müzik',
-    9648: 'Gizem',
-    10749: 'Romantik',
-    878: 'Bilim Kurgu',
-    10770: 'TV Filmi',
-    53: 'Gerilim',
-    10752: 'Savaş',
-    37: 'Western',
+    28: "Aksiyon", 12: "Macera", 16: "Animasyon", 35: "Komedi",
+    80: "Suç", 99: "Belgesel", 18: "Dram", 10751: "Aile",
+    14: "Fantastik", 36: "Tarih", 27: "Korku", 10402: "Müzik",
+    9648: "Gizem", 10749: "Romantik", 878: "Bilim Kurgu", 10770: "TV Filmi",
+    53: "Gerilim", 10752: "Savaş", 37: "Western"
   };
 
   async function fetchMovies(page = 1) {
@@ -79,8 +61,8 @@ function initCatalog() {
     const response = await fetch(`${endpoint}?${queryParams.toString()}`, {
       headers: {
         Authorization: `Bearer ${bearerToken}`,
-        accept: 'application/json',
-      },
+        accept: 'application/json'
+      }
     });
 
     const data = await response.json();
@@ -88,26 +70,23 @@ function initCatalog() {
   }
 
   async function fetchMovieDetails(movieId) {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=tr-TR`,
-      {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-          accept: 'application/json',
-        },
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=tr-TR`, {
+      headers: {
+        Authorization: `Bearer ${bearerToken}`,
+        accept: 'application/json'
       }
-    );
+    });
     return await response.json();
   }
 
   function loadPagination(totalPages) {
-    pagination.innerHTML = '';
+    pagination.innerHTML = "";
 
-    const prevButton = document.createElement('button');
-    prevButton.textContent = '<';
-    prevButton.classList.add('pagination-btn');
+    const prevButton = document.createElement("button");
+    prevButton.textContent = "<";
+    prevButton.classList.add("pagination-btn");
     if (currentPage === 1) prevButton.disabled = true;
-    prevButton.addEventListener('click', function () {
+    prevButton.addEventListener("click", function () {
       if (currentPage > 1) {
         currentPage--;
         loadMovies();
@@ -125,12 +104,12 @@ function initCatalog() {
     }
 
     for (let i = startPage; i <= endPage; i++) {
-      const pageButton = document.createElement('button');
+      const pageButton = document.createElement("button");
       pageButton.textContent = i;
-      pageButton.classList.add('pagination-btn');
-      if (i === currentPage) pageButton.classList.add('active');
+      pageButton.classList.add("pagination-btn");
+      if (i === currentPage) pageButton.classList.add("active");
 
-      pageButton.addEventListener('click', function () {
+      pageButton.addEventListener("click", function () {
         currentPage = i;
         loadMovies();
       });
@@ -139,26 +118,26 @@ function initCatalog() {
     }
 
     if (endPage < totalPages) {
-      const dots = document.createElement('span');
-      dots.textContent = '...';
-      dots.classList.add('pagination-dots');
+      const dots = document.createElement("span");
+      dots.textContent = "...";
+      dots.classList.add("pagination-dots");
       pagination.appendChild(dots);
 
-      const lastPage = document.createElement('button');
+      const lastPage = document.createElement("button");
       lastPage.textContent = totalPages;
-      lastPage.classList.add('pagination-btn');
-      lastPage.addEventListener('click', function () {
+      lastPage.classList.add("pagination-btn");
+      lastPage.addEventListener("click", function () {
         currentPage = totalPages;
         loadMovies();
       });
       pagination.appendChild(lastPage);
     }
 
-    const nextButton = document.createElement('button');
-    nextButton.textContent = '>';
-    nextButton.classList.add('pagination-btn');
+    const nextButton = document.createElement("button");
+    nextButton.textContent = ">";
+    nextButton.classList.add("pagination-btn");
     if (currentPage === totalPages) nextButton.disabled = true;
-    nextButton.addEventListener('click', function () {
+    nextButton.addEventListener("click", function () {
       if (currentPage < totalPages) {
         currentPage++;
         loadMovies();
@@ -171,13 +150,13 @@ function initCatalog() {
     const data = await fetchMovies(currentPage);
     const movies = data.results;
     const totalPages = data.total_pages;
-    catalogList.innerHTML = '';
+    catalogList.innerHTML = "";
 
     function addToLibrary(movie) {
-      let movieLibrary = JSON.parse(localStorage.getItem('movieLibrary')) || [];
+      let movieLibrary = JSON.parse(localStorage.getItem("movieLibrary")) || [];
       if (!movieLibrary.some(item => item.id === movie.id)) {
         movieLibrary.push(movie);
-        localStorage.setItem('movieLibrary', JSON.stringify(movieLibrary));
+        localStorage.setItem("movieLibrary", JSON.stringify(movieLibrary));
         alert(`${movie.title} başarıyla kütüphaneye eklendi!`);
       } else {
         alert(`${movie.title} zaten kütüphanenizde!`);
@@ -185,21 +164,14 @@ function initCatalog() {
     }
 
     movies.forEach(movie => {
-      const year = movie.release_date
-        ? movie.release_date.split('-')[0]
-        : 'Yıl yok';
-      const genres =
-        movie.genre_ids
-          .map(id => genreMap[id])
-          .filter(Boolean)
-          .slice(0, 2)
-          .join(', ') || 'Tür yok';
+      const year = movie.release_date ? movie.release_date.split("-")[0] : "Yıl yok";
+      const genres = movie.genre_ids.map(id => genreMap[id]).filter(Boolean).slice(0, 2).join(", ") || "Tür yok";
       const rating = movie.vote_average.toFixed(1);
       const starRating = Math.round(movie.vote_average / 2);
       const stars = '★'.repeat(starRating) + '☆'.repeat(5 - starRating);
 
-      const li = document.createElement('li');
-      li.classList.add('cata-tab');
+      const li = document.createElement("li");
+      li.classList.add("cata-tab");
       li.innerHTML = `
         <div class="cata-flow">
           <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" />
@@ -213,7 +185,7 @@ function initCatalog() {
         </div>
       `;
 
-      li.addEventListener('click', () => showModal(movie.id));
+      li.addEventListener("click", () => showModal(movie.id));
       catalogList.appendChild(li);
     });
 
@@ -222,19 +194,17 @@ function initCatalog() {
 
   async function showModal(movieId) {
     const movie = await fetchMovieDetails(movieId);
-    document.getElementById(
-      'modalImage'
-    ).src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-    document.getElementById('modalTitle').textContent = movie.title;
-    document.getElementById('modalDescription').textContent = movie.overview;
-    movieModal.style.display = 'block';
+    document.getElementById("modalImage").src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    document.getElementById("modalTitle").textContent = movie.title;
+    document.getElementById("modalDescription").textContent = movie.overview;
+    movieModal.style.display = "block";
   }
 
-  closeModal?.addEventListener('click', function () {
-    movieModal.style.display = 'none';
+  closeModal?.addEventListener("click", function () {
+    movieModal.style.display = "none";
   });
 
-  searchForm?.addEventListener('submit', function (e) {
+  searchForm?.addEventListener("submit", function (e) {
     e.preventDefault(); // Sayfanın yeniden yüklenmesini engeller
     currentQuery = searchInput.value.trim(); // input değerini alır
     selectedYear = yearSelect.value; // yıl seçimini alır
@@ -242,7 +212,8 @@ function initCatalog() {
     loadMovies(); // Filmleri yükler
   });
 
-  searchForm?.addEventListener('submit', function (e) {
+
+  searchForm?.addEventListener("submit", function (e) {
     e.preventDefault();
     currentQuery = searchInput.value.trim();
     selectedYear = yearSelect.value;
