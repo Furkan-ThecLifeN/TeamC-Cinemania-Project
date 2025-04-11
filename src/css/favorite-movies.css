@@ -146,7 +146,8 @@ ul {
   background: var(--gradient-1);
   cursor: pointer;
   margin-top: 10px;
-  display: block;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -157,27 +158,28 @@ ul {
   gap: 2%;
 }
 
-
 .filmCard {
-
+  
 }
 .movieCard {
   list-style-type: none;
   margin: 2%;
   border-radius: 5px;
-  border-radius: 8px;
+  
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 63.48%,
     rgba(0, 0, 0, 0.9) 92.16%
   );
+  
+  
 }
 
-
 .movie-image {
+  overflow: hidden;
   width: 100%;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 1);
+  
 }
 
 .movieCard p {
@@ -188,18 +190,12 @@ ul {
 }
 
 
-.about {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: ;
-}
 
 .markup {
   width: 438px;
-  height: 104px;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 2.5;
+  font-size: 20px;
+  line-height: 1.5;
 }
 
 /* Responsive design */
@@ -221,8 +217,6 @@ ul {
     line-height: 1.6;
     font-weight: 400;
   }
-  
- 
 
   .filmCard {
     background: linear-gradient(
@@ -237,15 +231,15 @@ ul {
     width: 158px;
     height: 52px;
     padding: 0.75em 1.5em;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1;
   }
 
   .movieCard {
     width: 100%;
     max-width: 100%;
-    border-radius: 5px;
+   
+    
   }
 
   .movieCard p {
@@ -254,17 +248,11 @@ ul {
     line-height: 1.4;
     font-weight: 500;
   }
-  .about {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: ;
-  }
 
   .empty-message {
-   width: 280px;
+    width: 280px;
   }
-  .markup { 
-    
+  .markup {
     height: 120px;
     font-weight: 400;
     font-size: 20px;
@@ -301,7 +289,6 @@ ul {
     font-weight: 400;
     line-height: 1.6;
   }
-  
 
   .filmCard {
     background: linear-gradient(
@@ -311,8 +298,8 @@ ul {
     );
     width: 100%;
   }
-  #empty-message{
-    gap:20px;
+  #empty-message {
+    gap: 20px;
   }
 
   .searchBtn {
@@ -320,11 +307,7 @@ ul {
 
   .movieCard {
     width: 395px;
-    height:auto;
-
-    
-
-
+    height: auto;
   }
 
   .movie {
@@ -333,16 +316,14 @@ ul {
     width: 100%;
   }
   .movieCard p {
-
-  }
- 
-    #empty-message {
-      width: 280px;
-    }
-    .markup {
-    }
-
-    .add-remove-btn {
-    }
   }
 
+  #empty-message {
+    width: 280px;
+  }
+  .markup {
+  }
+
+  .add-remove-btn {
+  }
+}
