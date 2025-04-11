@@ -69,7 +69,7 @@ export async function renderHeroSection() {
 }
 
 function renderFallback(container) {
-  container.style.backgroundImage = `url('/default-hero.jpg')`; // Projeye varsayılan bir görsel ekle
+  container.style.backgroundImage = `url('../img/heroDefault.png')`; // Projeye varsayılan bir görsel ekle
   container.innerHTML = `
     <div class="hero-content">
       <h1 class="hero-title">Welcome to Cinemania</h1>
