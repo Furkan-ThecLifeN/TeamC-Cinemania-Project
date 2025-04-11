@@ -1,13 +1,11 @@
-import './js/header';
 import './js/favorite-movies';
 import './js/pop-up-movie-card';
 import './js/pop-up-trailer-card';
 import './js/catalog';
 import './js/weekly-trends';
-import './js/footer';import { renderHeroSection } from './js/hero.js';
+import './js/footer';import { renderUpcomingSection } from './js/upcoming-this-month.js';
 
-renderHeroSection();
-
+renderUpcomingSection();
 
 export async function setup() {
     await loadHTML('#header-placeholder', './partials/header.html');
