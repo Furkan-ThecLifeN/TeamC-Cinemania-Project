@@ -1,4 +1,3 @@
-import './js/upcoming-this-month.js';
 import { renderUpcomingSection } from './js/upcoming-this-month.js';
 
 renderUpcomingSection();

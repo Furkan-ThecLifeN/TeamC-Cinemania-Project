@@ -1,4 +1,13 @@
-import { getTrendingToday, IMAGE_BASE_URL } from '../js/upcoming-this-month';
+export async function getTrendingToday() {
+  const API_KEY = '04c35731a5ee918f014970082a0088b1';
+  const response = await fetch(
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  return data.results;
+}
+
+export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original';
 
 export async function renderUpcomingSection() {
   const container = document.getElementById('upcoming-section');
@@ -7,13 +16,28 @@ export async function renderUpcomingSection() {
     const movies = await getTrendingToday();
 
     if (!movies || movies.length === 0) {
-      renderFallback(container);
+      container.innerHTML = '<p>Gösterilecek film bulunamadı.</p>';
       return;
     }
+
+    const movie = movies[0];
+
+    container.innerHTML = `
+      <div class="upcoming-movie-card">
+        <div class="movie-poster" style="background-image: url('${IMAGE_BASE_URL}${movie.backdrop_path}')"></div>
+        <div class="movie-details">
+          <h3 class="upcoming-movie-name">${movie.title}</h3>
+          <p class="movieabout">${movie.overview}</p>
+          <button class="btn-upcoming">Add to My Library</button>
+        </div>
+      </div>
+    `;
   } catch (error) {
-    renderFallback(container);
+    console.error('Hata:', error);
+    container.innerHTML = '<p>Bir hata oluştu. Lütfen tekrar deneyin.</p>';
   }
 }
+
 document.addEventListener('DOMContentLoaded', function () {
   const overlay = document.getElementById('overlay');
   const notification = document.getElementById('notification');
