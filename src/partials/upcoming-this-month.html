@@ -49,63 +49,49 @@
   <script src="../js/upcoming-this-month.js" type="module"></script>
 </section>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Upcoming</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="../css/upcoming-this-month.css" />
-</head>
+<div id="overlay" class="hidden"></div>
+<section class="upcoming">
+  <h2>UPCOMING THIS MONTH</h2>
+  <div class="upcoming-movie-card upcoming-content hidden">
+    <div class="movie-poster"></div>
 
-<body>
-  <div id="overlay" class="hidden"></div>
-  <section class="upcoming">
-    <h2>UPCOMING THIS MONTH</h2>
-    <div class="upcoming-movie-card upcoming-content hidden">
-      <div class="movie-poster"></div>
+    <div class="movie-details">
+      <h3 class="upcoming-movie-name">Movie Name</h3>
 
-      <div class="movie-details">
-        <h3 class="upcoming-movie-name">Movie Name</h3>
-
-        <div class="movie-info">
-          <div class="info-date">
-            <span class="info-label">Release date</span>
-            <span class="info-date-value">03.03.2023</span>
-          </div>
-          <div class="info-vote">
-            <span class="info-label">Vote / Votes</span>
-            <span class="info-vote-value">
-              <span class="vote-box">7.3</span> /
-              <span class="vote-box">1234</span>
-            </span>
-          </div>
-          <div class="info-popularity">
-            <span class="info-label">Popularity</span>
-            <span class="info-popularity-value">99.9</span>
-          </div>
-          <div class="info-genre">
-            <span class="info-label">Genre</span>
-            <span class="info-genre-value">Comedy, action</span>
-          </div>
+      <div class="movie-info">
+        <div class="info-date">
+          <span class="info-label">Release date</span>
+          <span class="info-date-value">03.03.2023</span>
         </div>
-        <h4>ABOUT</h4>
-        <p class="movieabout">Movie About</p>
-        <button class="btn-upcoming hidden-button">Add to My Library</button>
+        <div class="info-vote">
+          <span class="info-label">Vote / Votes</span>
+          <span class="info-vote-value">
+            <span class="vote-box">7.3</span> /
+            <span class="vote-box">1234</span>
+          </span>
+        </div>
+        <div class="info-popularity">
+          <span class="info-label">Popularity</span>
+          <span class="info-popularity-value">99.9</span>
+        </div>
+        <div class="info-genre">
+          <span class="info-label">Genre</span>
+          <span class="info-genre-value">Comedy, action</span>
+        </div>
       </div>
+      <h4>ABOUT</h4>
+      <p class="movieabout">Movie About</p>
+      <button class="btn-upcoming hidden-button">Add to My Library</button>
     </div>
+  </div>
 
-    <div id="no-movie-message" class="movie-hidden">
-      <p>Üzgünüz, bu ay için gösterilecek bir film bulunamadı.</p>
-    </div>
+  <div id="no-movie-message" class="movie-hidden">
+    <p>Üzgünüz, bu ay için gösterilecek bir film bulunamadı.</p>
+  </div>
 
-    <div id="notification" class="notification hidden">
-      <span class="checkmark">✔</span>
-      Add to My Library
-    </div>
-    <script src="../js/upcoming-this-month.js" type="module"></script>
-  </section>
-</body>
+  <div id="notification" class="notification hidden">
+    <span class="checkmark">✔</span>
+    Add to My Library
+  </div>
+  <script src="../js/upcoming-this-month.js" type="module"></script>
+</section>
