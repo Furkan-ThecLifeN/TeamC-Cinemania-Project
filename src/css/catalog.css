@@ -83,9 +83,6 @@ ul {
 
 .catalog-container {
     width: 100%;
-    /* max-width: 1280px; */
-    height: 5405px;
-    top: -3153px;
     background: #111111;
     z-index: 1;
     margin-top: -20px;
@@ -118,7 +115,6 @@ ul {
 .cata-flow img {
     width: 100%;
     /* Resim, kutucuÄŸa tam oturacak ÅŸekilde ayarlanÄ±r */
-    height: 100%;
     /* Resmin yÃ¼ksekliÄŸini %70 olarak ayarlÄ±yoruz */
     border-top-left-radius: 8px;
     /* Ãœst sol kÃ¶ÅŸe yuvarlatÄ±lÄ±r */

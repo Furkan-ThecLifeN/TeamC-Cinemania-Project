@@ -76,8 +76,7 @@ h6 {
 }
 
 .hero-section {
-  width: 1280px;
-  height: 720px;
+  width: 100%;
 }
 
 .weekly-trends-section {
@@ -88,16 +87,13 @@ h6 {
 }
 
 .upcoming-section {
-  width: 1280px;
-  height: 720px;
+  width: 100%;
 }
 
 .catolog-section {
-  width: 1280px;
-  height: 3000px;
+  width: 100%;
 }
 
 .favorite-Movies-section {
-  width: 1280px;
-  height: 2000px;
+  width: 100%;
 }

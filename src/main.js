@@ -1,11 +1,11 @@
+import { renderHeroSection } from './js/hero.js';
+import { renderUpcomingSection } from './js/upcoming-this-month.js';
 import './js/header.js';
 import './js/weekly-trends.js';
 import './js/footer.js';
 import './js/pop-up-movie-card.js';
 import './js/pop-up-trailer-card.js';
-import { renderHeroSection } from './js/hero.js';
-import { renderUpcomingSection } from './js/upcoming-this-month.js';
-
+import { initializeLibrary } from './js/favorite-movies';
 renderUpcomingSection();
 
 renderHeroSection();
@@ -26,6 +26,18 @@ async function loadHTML(selector, url) {
 }
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize the hero section
+    if (document.getElementById('hero-section')) {
+      renderHeroSection();
+    }
+    
+    // Initialize the movie library
+    if (document.getElementById('film-list')) {
+      initializeLibrary();
+    }
+  });
+  
 
 
 
