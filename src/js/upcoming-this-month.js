@@ -1,39 +1,48 @@
+import { getTrendingToday, IMAGE_BASE_URL } from '../js/upcoming-this-month';
+
+export async function renderUpcomingSection() {
+  const container = document.getElementById('upcoming-section');
+
+  try {
+    const movies = await getTrendingToday();
+
+    if (!movies || movies.length === 0) {
+      renderFallback(container);
+      return;
+    }
+  } catch (error) {
+    renderFallback(container);
+  }
+}
 document.addEventListener('DOMContentLoaded', function () {
   const overlay = document.getElementById('overlay');
   const notification = document.getElementById('notification');
   const libraryBtn = document.querySelector('.btn-upcoming');
   const libraryKey = 'myLibrary';
 
-  // API'den gelen film verisini burada alalım
   const randomFilm = {
-    id: 123, // Örnek film ID'si, gerçek API'den alınan değer ile değişecek
+    id: 123,
     title: 'Example Movie',
   };
 
-  // Kütüphaneyi alalım
   let library = JSON.parse(localStorage.getItem(libraryKey)) || [];
 
-  // Butona tıklama olayını dinleyelim
   libraryBtn.addEventListener('click', function () {
-    // Film kütüphanede var mı kontrol edelim
     const isInLibrary = library.some(film => film.id === randomFilm.id);
 
     if (isInLibrary) {
-      // Film çıkarıldığında kararma olmasın
       overlay.style.display = 'none';
       notification.classList.add('hidden');
     } else {
-      // Film eklenince kararma ve bildirim göster
       overlay.style.display = 'block';
       notification.classList.remove('hidden');
 
       setTimeout(() => {
         overlay.style.display = 'none';
         notification.classList.add('hidden');
-      }, 2000); // 2 saniye sonra gizle
+      }, 2000);
     }
 
-    // Film kütüphaneye ekleyip çıkarma işlemi
     if (isInLibrary) {
       library = library.filter(film => film.id !== randomFilm.id);
       libraryBtn.textContent = 'Add to My Library';
@@ -42,11 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
       libraryBtn.textContent = 'Remove from My Library';
     }
 
-    // Kütüphaneyi güncelle
     localStorage.setItem(libraryKey, JSON.stringify(library));
   });
 
-  // Film verisi ve diğer işlemler API'den alınıyor (bu kısmı değiştirmedim)
   const API_KEY = '04c35731a5ee918f014970082a0088b1';
   const BASE_URL = 'https://api.themoviedb.org/3';
   const currentDate = new Date();
@@ -80,7 +87,18 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
           }
 
-          const randomFilm = films[Math.floor(Math.random() * films.length)];
+          let randomFilm = JSON.parse(
+            localStorage.getItem('featuredUpcomingMovie')
+          );
+
+          if (!randomFilm) {
+            randomFilm = films[Math.floor(Math.random() * films.length)];
+            localStorage.setItem(
+              'featuredUpcomingMovie',
+              JSON.stringify(randomFilm)
+            );
+          }
+
           console.log('Seçilen film:', randomFilm);
 
           document.querySelector(
@@ -138,16 +156,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 notification.classList.remove('hidden');
 
                 setTimeout(() => {
-                  overlay.classList.add('hidden'); // Overlay'i gizle
-                  notification.classList.add('hidden'); // Bildirim kutusunu gizle
-                }, 1000); // 1 saniye sonra gizle
+                  overlay.classList.add('hidden');
+                  notification.classList.add('hidden');
+                }, 1000);
               });
             }
 
             localStorage.setItem(libraryKey, JSON.stringify(library));
           });
 
-          // Hover efekti
           libraryBtn.addEventListener('mouseenter', () => {
             if (libraryBtn.textContent === 'Add to My Library') {
               libraryBtn.classList.remove('default', 'clicked');
@@ -155,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           });
 
-          // Fare çekilince sadece Add durumunda eski haline dön
           libraryBtn.addEventListener('mouseleave', () => {
             if (libraryBtn.textContent === 'Add to My Library') {
               libraryBtn.classList.remove('hovered', 'clicked');
@@ -163,17 +179,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           });
 
-          // Focus durumunda tekrar hover olmasını sağlamak
           libraryBtn.addEventListener('focus', () => {
             libraryBtn.classList.add('hovered');
           });
 
-          // Hidden class'ı kaldırarak içerikleri göster
           document
             .querySelector('.upcoming-movie-card')
             .classList.remove('hidden');
 
-          // Butonu görünür yap
           document
             .querySelector('.btn-upcoming')
             .classList.remove('hidden-button');

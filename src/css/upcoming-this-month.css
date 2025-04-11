@@ -196,25 +196,28 @@ body.light .movie-details h4 {
 
 .notification {
     position: fixed;
-    top: 30%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #d4edda;
-    color: #155724;
-    padding: 50px 80px;
-    border-radius: 15px;
-    font-size: 40px;
+    background-color: rgba(212, 231, 217, 0.9);
+    border: 3px solid #282828;
+    color: #065519;
+    padding: 40px 70px;
+    border-radius: 35px;
+    box-shadow: 0 6px 18px rgba(2, 49, 15, 0.20);
+    transform: scale(5);
+    font-size: 50px;
     font-weight: 500;
     z-index: 999;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     opacity: 0;
     animation: showNotification 1s ease-in-out forwards;
 }
 
 .notification .checkmark {
-    font-size: 40px;
+    font-size: 70px;
     opacity: 0;
     width: 0;
     overflow: hidden;
@@ -229,7 +232,7 @@ body.light .movie-details h4 {
     }
 
     100% {
-        width: 30px;
+        width: 60px;
         opacity: 1;
     }
 }
