@@ -1,0 +1,423 @@
+Genel Düzenleme
+body {
+    width: 100%;
+    /* max-width: 1280px; */
+    height: 5405px;
+    background: #111111;
+    overflow-x: hidden;
+}
+
+
+
+ul {
+    list-style: none;
+}
+
+.search-box {
+    width: 398;
+    height: 50px;
+    top: 800px;
+    left: 441px;
+    gap: 16px;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 48px;
+    background-color: #111111;
+}
+
+.search-form{
+    display: flex;
+    justify-content: center;
+    background: transparent;
+}
+
+.search-input {
+    width: 334px;
+    height: 48px;
+    padding-left: 24px;
+    gap: 10px;
+    border-color: #B7B7B7;
+    border-radius: 8px;
+    border-width: 1px;
+    color: #B7B7B7;
+    background: transparent;
+}
+
+.search-button {
+    background: transparent;
+    /* Arka planı şeffaf yapıyoruz */
+    border: none;
+    /* Butonun kenarını kaldırıyoruz */
+    padding: 0;
+}
+
+.search-icon {
+    gap: 16px;
+    margin-left: 16px;
+    padding-bottom: 0px;
+
+}
+
+
+
+/* Hover efekti */
+.search-button:hover {
+    transform: scale(1.1);
+    /* Butonu biraz büyüt */
+}
+
+/* Active (Tıklama) efekti */
+.search-button:active {
+    transform: scale(0.95);
+    /* Butonu tıklandığında biraz küçült */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Hafif bir gölge efekti */
+}
+
+.year-select {
+    width: 95px;
+    height: 52px;
+    left: 724px;
+    gap: 10px;
+    border-radius: 8px;
+    margin-left: 10px;
+    text-align: center;
+    padding-right: 5px;
+    border-color: #B7B7B7;
+    border-radius: 8px;
+    border-width: 1px;
+    color: #B7B7B7;
+    background: transparent;
+}
+
+.catalog-container {
+    width: 100%;
+    /* max-width: 1280px; */
+    height: 5405px;
+    top: -3153px;
+    background: #111111;
+    z-index: 1;
+    margin-top: -20px;
+}
+
+
+
+
+/* Catalog container */
+.cata-menu {
+    display: flex;
+    /* Flexbox ile kutucukları hizalarız */
+    flex-wrap: wrap;
+    /* Taşan kutucukların bir alt satıra geçmesini sağlar */
+    /* justify-content: space-between; */
+    /* Aralarındaki boşluğu eşitler */
+    gap: 20px;
+    /* Kutucuklar arasındaki boşluğu ayarlamak */
+    max-width: 100%;
+    /* Kapsayıcının genişliği ekran genişliği ile sınırlı */
+    padding: 20px;
+    /* İçerik kenar boşluğu */
+    overflow: hidden;
+    /* Taşan elemanları gizler */
+    align-items: left;
+}
+
+
+
+.cata-flow img {
+    width: 100%;
+    /* Resim, kutucuğa tam oturacak şekilde ayarlanır */
+    height: 100%;
+    /* Resmin yüksekliğini %70 olarak ayarlıyoruz */
+    border-top-left-radius: 8px;
+    /* Üst sol köşe yuvarlatılır */
+    border-top-right-radius: 8px;
+    /* Üst sağ köşe yuvarlatılır */
+    object-fit: cover;
+    /* Resmin orantılı şekilde kırpılmasını sağlar */
+
+}
+
+
+
+/* Movie card (kutucuk) */
+.cata-tab {
+    width: 395px;
+    /* Her kutucuğun genişliğini 395px yapıyoruz */
+    /* height: 574px; */
+    /* Her kutucuğun yüksekliğini 574px yapıyoruz */
+    background-color: transparent;
+    /* Arka plan rengi */
+    border-radius: 8px;
+    /* Kenarları yuvarlatır */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Gölgelendirme efekti */
+    transition: transform 0.3s ease;
+    /* Hover etkisi için geçiş ekler */
+    cursor: pointer;
+    /* flex-grow: 0; */
+    flex: 0 1 calc(33.33% - 20px);
+    /* Esnek bir şekilde büyüyüp küçülmesini sağlar */
+    display: flex;
+    /* İçeriği düzgün şekilde hizalamak için flexbox */
+    flex-direction: column;
+    /* İçeriği dikey yönde hizalar */
+
+    height: auto;
+}
+
+/* Kutucuk hover efekti */
+.cata-tab:hover {
+    transform: scale(1.05);
+    /* Kutucuk hover ile büyür */
+}
+
+/* Resim kısmı */
+
+
+/* Bilgi kısmı */
+.cata-info {
+    padding: 10px;
+    /* padding-top: -50px; */
+    text-align:left;
+    /* Metni ortalar */
+    height: 30%;
+    /* Bilgi kısmının yüksekliğini %30 olarak ayarlıyoruz */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: -75px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.9) 70.16%);
+}
+
+.cata-cd-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    width: 287;
+    height: 24;
+    top: 1395px;
+    left: 873px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+}
+
+.cata-cd-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+    margin-top: 8px;
+    padding: 0 8px;
+
+}
+
+.cata-cd-title {
+    color: white;
+    margin-top: auto;
+}
+
+.left-info,
+.right-stars {
+    width: auto;
+    /* Sabit genişliği kaldırdım */
+    height: auto;
+    /* Sabit yüksekliği kaldırdım */
+    gap: 4px;
+    font-size: 15px;
+    /* Daha küçük font boyutu */
+    color: #B7B7B7;
+    margin-top: -10px;
+    /* Üstten biraz boşluk */
+}
+
+.left-info {
+    color: #B7B7B7;
+}
+
+.right-stars {
+    background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
+    background-clip: text;
+    /* 👈 Standart olan bu */
+    -webkit-background-clip: text;
+    /* 👈 Webkit için */
+    -webkit-text-fill-color: transparent;
+}
+
+.cata-cd-text {
+    font-size: 14px;
+    color: #fff;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 70px;
+    flex-wrap: wrap;
+    padding-top: 0px;
+}
+
+.pagination-btn {
+    background-color: transparent;
+    border: 2px solid #FFC226;
+    color: #FFC226;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover efekti: gradient dolgu + beyaz yazı */
+.pagination-btn:hover {
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    color: white;
+    border: none;
+}
+
+/* Aktif sayfa: gradient dolgu + beyaz yazı */
+.pagination-btn.active {
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    color: white;
+    border: none;
+}
+
+.pagination-dots {
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-text {
+    color: #B7B7B7;
+
+    margin-top: 70px;
+    text-align: center;
+}
+
+.icon-heart {
+    width: 14px;
+    height: 13px;
+    fill: #F87719;
+    color: #F87719;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+
+
+/* Responsive Tasarım - Mobil */
+@media (max-width: 767px) {
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .search-button {
+        margin-left: 10px;
+    }
+
+    .year-select {
+        width: 80%;
+        margin-top: 10px;
+    }
+
+    .cata-menu {
+        gap: 15px;
+    }
+
+    .cata-tab {
+        width: 100%;
+        max-width: 320px;
+        margin-bottom: 15px;
+    }
+
+    .cata-info {
+        height: auto;
+        padding: 5px;
+    }
+
+    .left-info,
+    .right-stars {
+        width: 86;
+        height: 14;
+        top: 900px;
+        left: 202px;
+        gap: 4px;
+    }
+
+    .cata-cd-title {
+        font-size: 14px;
+    }
+
+    .cata-cd-text {
+        font-size: 12px;
+        color: #fff;
+    }
+
+    .cata-cd-bottom {
+        font-size: 12px;
+    }
+
+    .footer-text {
+        font-size: 12px;
+        margin-top: 40px;
+    }
+
+    .pagination-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .icon-heart {
+        width: 12px;
+        height: 11px;
+    }
+}
+
+/* Responsive Tasarım - Tablet */
+@media (max-width: 1024px) {
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .cata-tab {
+        width: 48%;
+        max-width: 48%;
+    }
+
+    .cata-info {
+        height: 35%;
+    }
+
+    .footer-text {
+        font-size: 14px;
+    }
+
+    .pagination-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+}

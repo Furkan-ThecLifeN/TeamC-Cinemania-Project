@@ -1,9 +1,15 @@
 @import url('./css/header.css');
-@import url(./css/favorite-movies.css);@import url('./css/pop-up-movie-card.css');
-@import url('./css/pop-up-trailer-card.css');@import url('./css/weekly-trends.css');
-@import url('./css/my-library-hero.css');
-@import url('./css/footer.css');
 @import url('./css/hero.css');
+@import url('./css/weekly-trends.css');
+@import url('./css/upcoming-this-month.css');
+@import url('./css/footer.css');
+@import url('./css/pop-up-movie-card.css');
+@import url('./css/pop-up-trailer-card.css');
+@import url('./css/favorite-movies.css');
+@import url('./css/catalog.css');
+@import url('./css/my-library-hero.css');
+
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 

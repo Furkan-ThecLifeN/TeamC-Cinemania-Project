@@ -16,10 +16,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2));
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.2)
+  );
   z-index: 1;
 }
-
 
 .hero-content {
   position: relative;
@@ -49,7 +52,7 @@
 
 .star.full,
 .star.half::before {
-  background: linear-gradient(to right, #F84119 , #F89F19 68%);
+  background: linear-gradient(to right, #f84119, #f89f19 68%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -73,7 +76,6 @@
   width: 50%;
   overflow: hidden;
 }
-
 
 /* Açıklama */
 .hero-overview {
@@ -105,7 +107,7 @@
 
 .hero-button:hover {
   background: white;
-  color: #F87719;
+  color: #f87719;
 }
 
 /* İkinci buton beyaz stil */
@@ -128,7 +130,6 @@
   .hero-section {
     width: 100%;
     padding: 2rem 1rem;
-
   }
 
   .hero-title {
@@ -143,7 +144,6 @@
     flex-direction: row;
     align-items: stretch;
     flex-wrap: nowrap;
-    
   }
 
   .hero-button {
