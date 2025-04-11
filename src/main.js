@@ -1,4 +1,5 @@
 import './js/header';
+import './js/favorite-movies';
 import './js/pop-up-movie-card';
 import './js/pop-up-trailer-card';
 import './js/catalog';
