@@ -216,8 +216,6 @@ h6 {
   padding: 12px 24px;
 }
 
-
-
 /* Responsive design */
 @media screen and (min-width: 768px) {
   .dropdown-films {
@@ -272,7 +270,6 @@ h6 {
 
   .movieCard p {
     word-wrap: break-word;
-
   }
   .about {
     overflow: hidden;
@@ -337,35 +334,26 @@ h6 {
   }
 
   .searchBtn {
-    
   }
 
   .movieCard {
-   
   }
 
   .movie {
-    
   }
   .movie-image {
     width: 100%;
   }
   .movieCard p {
-    
   }
   .about {
-  
+    #empty-message {
+      width: 280px;
+    }
+    .markup {
+    }
 
-  #empty-message {
-    width: 280px;
-  }
-  .markup {
-   
-  }
-
-  .add-remove-btn {
-   
+    .add-remove-btn {
+    }
   }
 }
-
-
