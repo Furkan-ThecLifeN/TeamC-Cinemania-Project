@@ -1,0 +1,213 @@
+/* Navbar Stili */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 32px;
+  height: 60px;
+}
+
+/* Logo Stili */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 170px;
+  height: 48px;
+}
+
+.logo img {
+  width: 45px;
+  height: 36px;
+}
+
+.logo h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  gap: 80px;
+  max-width: 350px;
+  height: 16px;
+  margin-right: 32px;
+}
+
+.nav-menu a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #b7b7b7;
+  text-decoration: none;
+}
+
+.nav-menu a:hover {
+  color: white;
+}
+
+.nav-menu a.active {
+  color: #f87719;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+  width: 60px;
+  height: 24px;
+  background: #f87719;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  position: relative;
+  border: 2px solid #fff;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.moon {
+  left: 8px;
+}
+
+.sun {
+  right: 8px;
+}
+
+.theme-toggle {
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 3px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .theme-switcher {
+  border: 2px solid #121212;
+}
+
+.dark-mode .theme-toggle {
+  transform: translateX(34px);
+  background: white;
+}
+
+/* Sayfa Arka Planı */
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode {
+  background-color: #ffffff;
+  color: black;
+}
+
+/* Media Query - Mobil Cihazlar İçin */
+@media (max-width: 768px) {
+  /* Navbar içeriğini space-between yap */
+  .navbar {
+    justify-content: space-between;
+  }
+
+  /* Nav Menu'yu gizle */
+  .nav-menu {
+    display: none;
+    width: 100%;
+    text-align: center;
+    gap: 20px;
+  }
+
+  /* Menü butonunu mobilde göster */
+  .btn {
+    display: block;
+    background-color: #f87719;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  /* Theme switcher'ı daha küçük yap */
+  .theme-switcher {
+    width: 50px;
+    height: 20px;
+  }
+
+  /* Butona tıklandığında nav menu görünür hale gelsin */
+  .navbar.active .nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #121212;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    padding-top: 60px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Menü linklerinin stilini ayarlayın */
+  .nav-menu a {
+    color: white;
+    font-size: 18px;
+  }
+
+  /* Kapanma ikonunu sağ üstte göstermek */
+  .close-btn {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  .close-btn:hover {
+    color: #f87719;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar .btn {
+    display: none; /* Masaüstü ve tablet versiyonlarında buton gizlensin */
+  }
+}
+
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode {
+  background-color: #ffffff;
+  color: black;
+}

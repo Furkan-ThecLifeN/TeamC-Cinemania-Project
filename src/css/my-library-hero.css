@@ -1,0 +1,132 @@
+/* Genel Stiller */
+.my-library-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 40px;
+}
+
+.hero-container {
+  background-image: linear-gradient(to bottom, #111111, #11111100),
+    url('../img/my-library-hero.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  max-height: 720px;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  gap: 20px;
+  width: 500px;
+  height: 250px;
+  margin-top: 230px;
+  margin-left: 120px;
+  text-align: left;
+}
+
+.hero-text h1 {
+  margin: 0;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.hero-text p {
+  margin: 0;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #F8F8F8;
+}
+
+/* Media Queries - Responsive Tasarım */
+
+/* Mobil için */
+@media (max-width: 768px) {
+  .hero-container {
+    background-position: center center;
+    background-size: cover;
+    max-height: 380px;
+  }
+
+  .hero-text {
+    width: 90%;
+    margin-top: 100px;
+    margin-left: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+/* Tablet için */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-container {
+    background-position: center center;
+    background-size: cover;
+    max-height: 430px;
+  }
+
+  .hero-text {
+    width: 70%;
+    margin-top: 150px;
+    margin-left: 50px;
+  }
+
+  .hero-text h1 {
+    font-size: 44px;
+    font-weight: 700;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+/* Desktop için */
+@media (min-width: 1024px) {
+  .hero-container {
+    background-position: center center;
+    background-size: cover;
+    max-height: 720px;
+  }
+
+  .hero-text {
+    width: 500px;
+    margin-top: 230px;
+    margin-left: 120px;
+  }
+
+  .hero-text h1 {
+    font-size: 64px;
+    font-weight: 700;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
