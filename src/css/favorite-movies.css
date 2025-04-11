@@ -51,7 +51,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+ul {
   margin: 0;
   padding: 0;
 }
@@ -84,7 +85,6 @@ h6 {
   border-radius: 8px;
   align-items: center;
   padding: 5px;
-
   background-color: rgba(0, 0, 0, 0.8);
   color: var(--primary-color);
   z-index: 100;
@@ -110,26 +110,19 @@ h6 {
 .film-genres p:hover {
   color: var(--color-1);
 }
-.film-grid {
-  display: flex;
-  flex-direction: column;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 10px;
-}
 
 .markup {
   display: flex;
   flex-direction: column;
   text-align: center;
+  color: rgba(255, 255, 255, 1);
 }
 #empty-message {
-  padding: 50%;
-  margin-left: 21px;
-  width: 280px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
-
+  text-align: center;
   flex-direction: column;
 }
 
@@ -148,7 +141,6 @@ h6 {
   height: 38px;
   border-radius: 74px;
   padding: 0.75em 1.5em;
-
   font-size: 12px;
   color: var(--secondary-color);
   background: var(--gradient-1);
@@ -159,15 +151,20 @@ h6 {
 }
 
 .film-grid {
-  width: 280px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2%;
+}
+
+
+.filmCard {
+
 }
 .movieCard {
   list-style-type: none;
-  width: 100%;
-
+  margin: 2%;
+  border-radius: 5px;
   border-radius: 8px;
   background: linear-gradient(
     180deg,
@@ -176,70 +173,56 @@ h6 {
   );
 }
 
-.movie {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 63.48%,
-    rgba(0, 0, 0, 0.9) 92.16%
-  );
-}
+
 .movie-image {
   width: 100%;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 1);
 }
+
 .movieCard p {
   word-wrap: break-word;
+  font-size: 12px;
+  line-height: 1.8;
+  color: rgba(183, 183, 183, 1);
 }
+
+
 .about {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: ;
 }
 
-.empty-message {
-  width: 280px;
-}
 .markup {
-  height: 120px;
+  width: 438px;
+  height: 104px;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 1.6em;
-  color: var(--primary-color);
+  font-size: 24px;
+  line-height: 2.5;
 }
-
-.add-remove-btn {
-  width: 140px;
-  height: 38px;
-  border-radius: 74px;
-  cursor: pointer;
-
-  gap: 10px;
-  padding: 12px 24px;
-}
-
-
 
 /* Responsive design */
 @media screen and (min-width: 768px) {
   .dropdown-films {
-    max-width: 100%;
-    height: 100%;
-    border: 1px solid rgba(255, 255, 255, 1);
+    width: 144px;
+    height: 44px;
   }
 
   .film-grid {
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .markup {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-  #empty-message {
-    font-size: 20px;
+    width: 584px;
+    height: 124px;
+    font-size: 32px;
+    line-height: 1.6;
     font-weight: 400;
-    line-height: 1.4;
   }
+  
+ 
 
   .filmCard {
     background: linear-gradient(
@@ -251,28 +234,25 @@ h6 {
   }
 
   .searchBtn {
-    width: 121px;
-    height: 38px;
+    width: 158px;
+    height: 52px;
     padding: 0.75em 1.5em;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
   }
 
-  .film-grid {
-    gap: 10px;
-  }
   .movieCard {
     width: 100%;
     max-width: 100%;
-    border-radius: 8px;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 63.48%,
-      rgba(0, 0, 0, 0.9) 92.16%
-    );
+    border-radius: 5px;
   }
 
   .movieCard p {
     word-wrap: break-word;
-
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 500;
   }
   .about {
     overflow: hidden;
@@ -281,9 +261,10 @@ h6 {
   }
 
   .empty-message {
-    width: 280px;
+   width: 280px;
   }
-  .markup {
+  .markup { 
+    
     height: 120px;
     font-weight: 400;
     font-size: 20px;
@@ -303,29 +284,24 @@ h6 {
 
 @media (min-width: 1024px) {
   .dropdown-films {
-    width: 144px;
-    height: 44px;
-    padding: 12px 60px 20px 10px;
+    width: 260px;
+    height: 48px;
   }
   .film-genres {
-    width: 144px;
+    width: 260px;
   }
 
   .film-genres p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6em;
   }
 
   .markup {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-  #empty-message {
     font-size: 24px;
     font-weight: 400;
-    line-height: 2.5;
+    line-height: 1.6;
   }
+  
 
   .filmCard {
     background: linear-gradient(
@@ -335,37 +311,38 @@ h6 {
     );
     width: 100%;
   }
+  #empty-message{
+    gap:20px;
+  }
 
   .searchBtn {
-    
   }
 
   .movieCard {
-   
+    width: 395px;
+    height:auto;
+
+    
+
+
   }
 
   .movie {
-    
   }
   .movie-image {
     width: 100%;
   }
   .movieCard p {
-    
-  }
-  .about {
-  
 
-  #empty-message {
-    width: 280px;
   }
-  .markup {
-   
-  }
+ 
+    #empty-message {
+      width: 280px;
+    }
+    .markup {
+    }
 
-  .add-remove-btn {
-   
+    .add-remove-btn {
+    }
   }
-}
-
 

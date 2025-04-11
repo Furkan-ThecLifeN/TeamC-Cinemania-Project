@@ -1,9 +1,9 @@
-
 const container = document.getElementById('film-list');
 let page = 1;
 const loadBtn = document.querySelector('.load-btn');
 const APIKey = '0f552bbb3a7946c71382d336324ac39a';
 const library = '';
+const dropDown = document.querySelector('.dropdown-films');
 const message = document.getElementById('empty-message');
 const genreMap = {
   28: 'Action',
@@ -30,6 +30,7 @@ const genreMap = {
 document.addEventListener('DOMContentLoaded', () => {
   const library = JSON.parse(localStorage.getItem('library')) || [];
   if (library.length === 0) {
+    dropDown.style.display = 'none';
     showEmptyLibraryMessage();
   } else {
     displayMovies(library);
@@ -50,26 +51,28 @@ async function fetchMovies() {
 
 // list movies
 function displayMovies(movies) {
+  dropDown.style.display = 'block';
   container.innerHTML = '';
   message.innerHTML = '';
   movies.forEach(movie => {
     const movieCard = document.createElement('li');
-    const filmCard= document.createElement("div");
+    const filmCard = document.createElement('div');
     filmCard.innerHTML = `
-    <a href="https://image.tmdb.org/t/p/original/${movie.poster_path} class="lightbox"><img class="movie-image" alt="${
-      movie.original_title
-    }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/></a>
-      <h3>${movie.original_title}</h3>
+    <a href="https://image.tmdb.org/t/p/original/${
+      movie.poster_path
+    } class="lightbox"><img class="movie-image" alt="${
+      movie.original_title}"
+      src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/></a>
+      <h3>${movie.original_title.toUpperCase()}</h3>
       
       <p class="popularity" >Populrity ${movie.popularity}</p>
-      <p class="genre">${movie.genre_ids.map(id => genreMap[id]).join(',')}|${
+      <p class="genre">${movie.genre_ids.map(id => genreMap[id]).join(',')} | ${
       movie.release_date.split('-')[0]
     }</p>`;
     movieCard.classList.add('movieCard');
-    filmCard.classList.add("filmCard");
+    filmCard.classList.add('filmCard');
     movieCard.appendChild(filmCard);
     container.appendChild(movieCard);
-    
   });
 }
 
@@ -82,7 +85,8 @@ card.addEventListener('click', () => {});
 //user will see if there is no movie in library
 
 function showEmptyLibraryMessage() {
-  const markup = `<p class="markup"><span>OOOPS..</span><span>We are very sorry!</span><span>You don’t have any movies at your library</span></p>
+  
+  const markup = `<p class="markup"><span>OOOPS..</span><span>We are very sorry!</span><span>You don’t have any movies at your library.</span></p>
   <button type="button" class="searchBtn">Search Movie</button>`;
   message.innerHTML = markup;
   const searchBtn = document.querySelector('.searchBtn');
