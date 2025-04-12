@@ -12,7 +12,7 @@ function populateYearSelect(startYear = new Date().getFullYear(), endYear = 1980
 }
 
 function initCatalog() {
-  populateYearSelect(); // Dinamik yıl listesi oluşturulur
+  populateYearSelect(); 
 
   const catalogList = document.querySelector(".cata-menu");
   const pagination = document.getElementById("pagination");
@@ -228,14 +228,14 @@ function initCatalog() {
   });
 
   searchForm?.addEventListener("submit", function (e) {
-    e.preventDefault(); // Sayfanın yeniden yüklenmesini engeller
-    currentQuery = searchInput.value.trim(); // input değerini alır
-    selectedYear = yearSelect.value; // yıl seçimini alır
+    e.preventDefault(); 
+    currentQuery = searchInput.value.trim(); 
+    selectedYear = yearSelect.value;
     currentPage = 1;
-    loadMovies(); // Filmleri yükler
+    loadMovies(); 
   });
 
-  // İkinci submit event listener'ı kaldırıldı (tekrar vardı)
+  
 
   loadMovies();
 }

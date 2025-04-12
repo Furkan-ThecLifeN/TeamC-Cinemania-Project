@@ -1,61 +1,86 @@
-// upcoming.js
-export async function getTrendingToday() {
-  const API_KEY = '04c35731a5ee918f014970082a0088b1';
-  const response = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
-  );
-  const data = await response.json();
-  return data.results;
-}
-
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original';
 
+// Favori filmleri saklamak için kullanılan fonksiyonlar
+function getLibrary() {
+  return JSON.parse(localStorage.getItem('library')) || [];
+}
+
+function setLibrary(library) {
+  localStorage.setItem('library', JSON.stringify(library));
+}
+
+// Library'e ekleme işlemi
+function toggleLibrary(movie) {
+  const library = getLibrary();
+  const index = library.findIndex(item => item.id === movie.id);
+
+  // Eğer film yoksa, ekliyoruz, varsa çıkarıyoruz
+  if (index === -1) {
+    library.push(movie);
+  } else {
+    library.splice(index, 1);
+  }
+
+  setLibrary(library);
+  updateLibraryButton(movie.id);
+  showNotification();
+}
+
+// Library butonunun metnini güncelleme
+function updateLibraryButton(id) {
+  const libraryBtn = document.querySelector('.btn-upcoming');
+  const library = getLibrary();
+  const inLibrary = library.some(movie => movie.id === id);
+
+  // Butonun metnini ve stilini güncelle
+  libraryBtn.textContent = inLibrary ? 'Remove from my library' : 'Add to my library';
+  libraryBtn.classList.toggle('clicked', inLibrary);
+  libraryBtn.classList.toggle('default', !inLibrary);
+}
+
+// Film detaylarını alıp, sayfada gösterme
 export async function renderUpcomingSection() {
   const container = document.getElementById('upcoming-section');
   if (!container) return;
-  
+
   try {
-    // Get current date info for the monthly releases
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
     const firstDay = `${year}-${month}-01`;
     const lastDay = new Date(year, month, 0).getDate();
     const lastDayOfMonth = `${year}-${month}-${lastDay}`;
-    
-    // Get genre map
+
     const API_KEY = '04c35731a5ee918f014970082a0088b1';
     const BASE_URL = 'https://api.themoviedb.org/3';
     const genreMap = {};
-    
+
     // Get genres first
     const genreResponse = await fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`);
     const genreData = await genreResponse.json();
-    
     genreData.genres.forEach(genre => {
       genreMap[genre.id] = genre.name;
     });
-    
+
     // Get monthly releases
     const url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&primary_release_date.gte=${firstDay}&primary_release_date.lte=${lastDayOfMonth}&sort_by=popularity.desc`;
     const response = await fetch(url);
     const data = await response.json();
     const films = data.results;
-    
+
     if (!films || films.length === 0) {
       container.innerHTML = '<p id="no-movie-message">No movies found for this month.</p>';
       return;
     }
-    
-    // Get or set featured movie
+
     let randomFilm = JSON.parse(localStorage.getItem('featuredUpcomingMovie'));
-    
+
     if (!randomFilm) {
       randomFilm = films[Math.floor(Math.random() * films.length)];
       localStorage.setItem('featuredUpcomingMovie', JSON.stringify(randomFilm));
     }
-    
-    // Create HTML structure like in the first image
+
+    // Create HTML structure
     container.innerHTML = `
       <h2>UPCOMING THIS MONTH</h2>
       <div class="upcoming-movie-card">
@@ -97,10 +122,10 @@ export async function renderUpcomingSection() {
         </div>
       </div>
     `;
-    
+
     // Set up library button functionality
     setupLibraryButton(randomFilm);
-    
+
   } catch (error) {
     console.error('Error:', error);
     container.innerHTML = '<p>An error occurred. Please try again later.</p>';
@@ -110,76 +135,33 @@ export async function renderUpcomingSection() {
 function setupLibraryButton(movie) {
   const libraryBtn = document.querySelector('.btn-upcoming');
   if (!libraryBtn) return;
-  
-  const libraryKey = 'myLibrary';
-  let library = JSON.parse(localStorage.getItem(libraryKey)) || [];
-  
-  // Check if movie is already in library
-  const isInLibrary = library.some(film => film.id === movie.id);
-  
-  // Update button text
-  libraryBtn.textContent = isInLibrary ? 'Remove from My Library' : 'Add to my library';
-  
-  // Update button class
-  libraryBtn.classList.add(isInLibrary ? 'clicked' : 'default');
-  
-  // Set up click event
+
+  // Update button text and style when clicked
   libraryBtn.addEventListener('click', () => {
-    const isCurrentlyInLibrary = library.some(film => film.id === movie.id);
-    
-    if (isCurrentlyInLibrary) {
-      // Remove from library
-      library = library.filter(film => film.id !== movie.id);
-      libraryBtn.textContent = 'Add to my library';
-      libraryBtn.classList.remove('clicked');
-      libraryBtn.classList.add('default');
-    } else {
-      // Add to library
-      library.push({ 
-        id: movie.id, 
-        title: movie.title,
-        poster_path: movie.poster_path,
-        backdrop_path: movie.backdrop_path,
-        vote_average: movie.vote_average,
-        vote_count: movie.vote_count,
-        genre_ids: movie.genre_ids,
-        overview: movie.overview,
-        release_date: movie.release_date,
-        popularity: movie.popularity
-      });
-      
-      libraryBtn.textContent = 'Remove from My Library';
-      libraryBtn.classList.remove('default');
-      libraryBtn.classList.add('clicked');
-      
-      // Show notification
-      showNotification();
-    }
-    
-    localStorage.setItem(libraryKey, JSON.stringify(library));
+    toggleLibrary(movie);
   });
-  
-  // Set up hover effects
+
   libraryBtn.addEventListener('mouseenter', () => {
     if (!libraryBtn.classList.contains('clicked')) {
       libraryBtn.classList.add('hovered');
     }
   });
-  
+
   libraryBtn.addEventListener('mouseleave', () => {
     libraryBtn.classList.remove('hovered');
   });
 }
 
+// Notification for adding/removing from library
 function showNotification() {
   const overlay = document.getElementById('overlay');
   const notification = document.getElementById('notification');
-  
+
   if (!overlay || !notification) return;
-  
+
   overlay.classList.remove('hidden');
   notification.classList.remove('hidden');
-  
+
   setTimeout(() => {
     overlay.classList.add('hidden');
     notification.classList.add('hidden');

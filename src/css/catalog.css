@@ -1,5 +1,3 @@
-
-
 ul {
     list-style: none;
 }
@@ -13,7 +11,6 @@ ul {
     text-align: center;
     padding-top: 80px;
     padding-bottom: 48px;
-    background-color: #111111;
 }
 
 .search-form{
@@ -36,7 +33,9 @@ ul {
 
 .search-button {
     background: transparent;
+    /* Arka planÄ± ÅŸeffaf yapÄ±yoruz */
     border: none;
+    /* Butonun kenarÄ±nÄ± kaldÄ±rÄ±yoruz */
     padding: 0;
 }
 
@@ -44,18 +43,23 @@ ul {
     gap: 16px;
     margin-left: 16px;
     padding-bottom: 0px;
-    
+
 }
 
 
 
+/* Hover efekti */
 .search-button:hover {
     transform: scale(1.1);
+    /* Butonu biraz bÃ¼yÃ¼t */
 }
 
+/* Active (TÄ±klama) efekti */
 .search-button:active {
     transform: scale(0.95);
+    /* Butonu tÄ±klandÄ±ÄŸÄ±nda biraz kÃ¼Ã§Ã¼lt */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Hafif bir gÃ¶lge efekti */
 }
 
 .year-select {
@@ -76,7 +80,6 @@ ul {
 
 .catalog-container {
     width: 100%;
-    background: #111111;
     z-index: 1;
     margin-top: -20px;
 }
@@ -84,10 +87,10 @@ ul {
 
 
 
+/* Catalog container */
 .cata-menu {
     display: flex;
     flex-wrap: wrap;
-
     gap: 20px;
     max-width: 100%;
     padding: 20px;
@@ -102,7 +105,6 @@ ul {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     object-fit: cover;
-    
 }
 
 
@@ -110,42 +112,24 @@ ul {
 .cata-tab {
     width: 395px;
     background-color: transparent;
-    /* Arka plan rengi */
     border-radius: 8px;
-    /* KenarlarÄ± yuvarlatÄ±r */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* GÃ¶lgelendirme efekti */
     transition: transform 0.3s ease;
-    /* Hover etkisi iÃ§in geÃ§iÅŸ ekler */
     cursor: pointer;
-    /* flex-grow: 0; */
     flex: 0 1 calc(33.33% - 20px);
-    /* Esnek bir ÅŸekilde bÃ¼yÃ¼yÃ¼p kÃ¼Ã§Ã¼lmesini saÄŸlar */
     display: flex;
-    /* Ä°Ã§eriÄŸi dÃ¼zgÃ¼n ÅŸekilde hizalamak iÃ§in flexbox */
     flex-direction: column;
-    /* Ä°Ã§eriÄŸi dikey yÃ¶nde hizalar */
-    
     height: auto;
 }
 
-/* Kutucuk hover efekti */
 .cata-tab:hover {
     transform: scale(1.05);
-    /* Kutucuk hover ile bÃ¼yÃ¼r */
 }
 
-/* Resim kÄ±smÄ± */
-
-
-/* Bilgi kÄ±smÄ± */
 .cata-info {
     padding: 10px;
-    /* padding-top: -50px; */
     text-align:left;
-    /* Metni ortalar */
     height: 30%;
-    /* Bilgi kÄ±smÄ±nÄ±n yÃ¼ksekliÄŸini %30 olarak ayarlÄ±yoruz */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -177,7 +161,7 @@ ul {
     color: white;
     margin-top: 8px;
     padding: 0 8px;
-    
+
 }
 
 .cata-cd-title {
@@ -188,15 +172,11 @@ ul {
 .left-info,
 .right-stars {
     width: auto;
-    /* Sabit geniÅŸliÄŸi kaldÄ±rdÄ±m */
     height: auto;
-    /* Sabit yÃ¼ksekliÄŸi kaldÄ±rdÄ±m */
     gap: 4px;
     font-size: 15px;
-    /* Daha kÃ¼Ã§Ã¼k font boyutu */
     color: #B7B7B7;
     margin-top: -10px;
-    /* Ãœstten biraz boÅŸluk */
 }
 
 .left-info {
@@ -206,9 +186,7 @@ ul {
 .right-stars {
     background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
     background-clip: text;
-    /* ğŸ‘ˆ Standart olan bu */
     -webkit-background-clip: text;
-    /* ğŸ‘ˆ Webkit iÃ§in */
     -webkit-text-fill-color: transparent;
 }
 
@@ -238,14 +216,12 @@ ul {
     transition: 0.3s;
 }
 
-/* Hover efekti: gradient dolgu + beyaz yazÄ± */
 .pagination-btn:hover {
     background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
     color: white;
     border: none;
 }
 
-/* Aktif sayfa: gradient dolgu + beyaz yazÄ± */
 .pagination-btn.active {
     background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
     color: white;
@@ -261,7 +237,7 @@ ul {
 
 .footer-text {
     color: #B7B7B7;
-    
+
     margin-top: 70px;
     text-align: center;
 }
@@ -279,7 +255,6 @@ ul {
 
 
 
-/* Responsive TasarÄ±m - Mobil */
 @media (max-width: 767px) {
     .search-box {
         width: 100%;
@@ -358,8 +333,7 @@ ul {
     }
 }
 
-/* Responsive TasarÄ±m - Tablet */
-@media (max-width: 1279px) {
+@media (max-width: 1024px) {
     .search-box {
         width: 100%;
         max-width: 100%;

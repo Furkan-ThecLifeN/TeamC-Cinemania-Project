@@ -1,5 +1,5 @@
 #weekly-trends {
-  
+
 }
 
 
@@ -50,8 +50,13 @@
 }
 
 .weekly-title a:hover {
-  color: var(--primary-color);
+  color: white;
 }
+
+.dark-mode .weekly-title a:hover {
+  color: rgb(0, 0, 0);
+}
+
 
 .weekly-movies-container {
   display: flex;
