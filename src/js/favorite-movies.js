@@ -1,16 +1,33 @@
 // favorite.js
 export const APIKey = '0f552bbb3a7946c71382d336324ac39a';
 export const genreMap = {
-  28: 'Action',
-  12: 'Adventure',
-  /* other genres */
+  28: 'Aksiyon',
+  12: 'Macera',
+  16: 'Animasyon',
+  35: 'Komedi',
+  80: 'Suç',
+  99: 'Belgesel',
+  18: 'Dram',
+  10751: 'Aile',
+  14: 'Fantastik',
+  36: 'Tarih',
+  27: 'Korku',
+  10402: 'Müzik',
+  9648: 'Gizem',
+  10749: 'Romantik',
+  878: 'Bilim Kurgu',
+  10770: 'TV Filmi',
+  53: 'Gerilim',
+  10752: 'Savaş',
+  37: 'Western',
 };
+let page = 1;
 
 export function initializeLibrary() {
   const container = document.getElementById('film-list');
   const message = document.getElementById('empty-message');
   let page = 1;
-  
+
   // Load library from localStorage
   const library = JSON.parse(localStorage.getItem('library')) || [];
   if (library.length === 0) {
@@ -18,11 +35,14 @@ export function initializeLibrary() {
   } else {
     displayMovies(library);
   }
-  
+
   // Initialize event listeners
   initEventListeners();
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  initializeLibrary(); // sayfa yüklendiğinde çalışacak fonksiyon
+});
 function initEventListeners() {
   // Add event listeners for load button if it exists
   const loadBtn = document.querySelector('.load-btn');
@@ -32,7 +52,7 @@ function initEventListeners() {
       fetchMovies();
     });
   }
-  
+
   // Add event listener for add/remove buttons
   document.addEventListener('click', e => {
     if (e.target.classList.contains('add-remote-btn')) {
@@ -61,30 +81,34 @@ export async function fetchMovies() {
 export function displayMovies(movies) {
   const container = document.getElementById('film-list');
   const message = document.getElementById('empty-message');
-  
+
   if (!container) return;
-  
+
   container.innerHTML = '';
   if (message) message.innerHTML = '';
-  
+
   movies.forEach(movie => {
     const movieCard = document.createElement('li');
-    const filmCard = document.createElement("div");
+    const filmCard = document.createElement('div');
+    const starRating = Math.round(movie.vote_average / 2);
+    const stars = '★'.repeat(starRating) + '☆'.repeat(5 - starRating);
     filmCard.innerHTML = `
-      <a href="https://image.tmdb.org/t/p/original/${movie.poster_path}" class="lightbox">
-        <img class="movie-image" alt="${movie.original_title}" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/>
+      <a href="https://image.tmdb.org/t/p/original/${
+        movie.poster_path
+      }" class="lightbox">
+        <img class="movie-image" alt="${
+          movie.original_title
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/>
       </a>
       <h3>${movie.original_title}</h3>
-      <p class="popularity">Popularity ${movie.popularity}</p>
-      <p class="genre">${movie.genre_ids.map(id => genreMap[id]).join(',')}|${
-        movie.release_date ? movie.release_date.split('-')[0] : 'N/A'
-      }</p>
-      <button class="add-remote-btn" data-id="${movie.id}">
-        ${isInLibrary(movie.id) ? 'Remove from Library' : 'Add to Library'}
-      </button>
-    `;
+      <div class="card-down"><span class="left-info">${movie.genre_ids
+        .map(id => genreMap[id])
+        .join(',')} | ${
+      movie.release_date ? movie.release_date.split('-')[0] : 'N/A'
+}</span><span class="stars">${stars}</span>
+      </div>`;
     movieCard.classList.add('movieCard');
-    filmCard.classList.add("filmCard");
+    filmCard.classList.add('filmCard');
     movieCard.appendChild(filmCard);
     container.appendChild(movieCard);
   });
@@ -93,7 +117,7 @@ export function displayMovies(movies) {
 function showEmptyLibraryMessage() {
   const message = document.getElementById('empty-message');
   if (!message) return;
-  
+
   const markup = `
     <p class="markup">
       <span>OOOPS..</span>
@@ -103,13 +127,14 @@ function showEmptyLibraryMessage() {
     <button type="button" class="searchBtn">Search Movie</button>
   `;
   message.innerHTML = markup;
-  
-  const searchBtn = document.querySelector('.searchBtn');
-  if (searchBtn) {
-    searchBtn.addEventListener('click', () => {
-      fetchMovies();
-    });
-  }
+  setTimeout(() => {
+    const searchBtn = document.querySelector('.searchBtn');
+    if (searchBtn) {
+      searchBtn.addEventListener('click', () => {
+        fetchMovies();
+      });
+    }
+  }, 0);
 }
 
 function isInLibrary(id) {
@@ -117,16 +142,11 @@ function isInLibrary(id) {
   return library.some(movie => movie.id === id);
 }
 
-function addToLibrary(id) {
-  // Implement adding to library
-  // You'll need to fetch the movie details by ID first
-}
-
 function removeFromLibrary(id) {
   let library = JSON.parse(localStorage.getItem('library')) || [];
   const updatedStorage = library.filter(movie => movie.id !== id);
   localStorage.setItem('library', JSON.stringify(updatedStorage));
-  
+
   // Refresh the display
   if (updatedStorage.length === 0) {
     showEmptyLibraryMessage();

@@ -36,9 +36,7 @@ ul {
 
 .search-button {
     background: transparent;
-    /* Arka planÄ± ÅŸeffaf yapÄ±yoruz */
     border: none;
-    /* Butonun kenarÄ±nÄ± kaldÄ±rÄ±yoruz */
     padding: 0;
 }
 
@@ -51,18 +49,13 @@ ul {
 
 
 
-/* Hover efekti */
 .search-button:hover {
     transform: scale(1.1);
-    /* Butonu biraz bÃ¼yÃ¼t */
 }
 
-/* Active (TÄ±klama) efekti */
 .search-button:active {
     transform: scale(0.95);
-    /* Butonu tÄ±klandÄ±ÄŸÄ±nda biraz kÃ¼Ã§Ã¼lt */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    /* Hafif bir gÃ¶lge efekti */
 }
 
 .year-select {
@@ -91,22 +84,14 @@ ul {
 
 
 
-/* Catalog container */
 .cata-menu {
     display: flex;
-    /* Flexbox ile kutucuklarÄ± hizalarÄ±z */
     flex-wrap: wrap;
-    /* TaÅŸan kutucuklarÄ±n bir alt satÄ±ra geÃ§mesini saÄŸlar */
-    /* justify-content: space-between; */
-    /* AralarÄ±ndaki boÅŸluÄŸu eÅŸitler */
+
     gap: 20px;
-    /* Kutucuklar arasÄ±ndaki boÅŸluÄŸu ayarlamak */
     max-width: 100%;
-    /* KapsayÄ±cÄ±nÄ±n geniÅŸliÄŸi ekran geniÅŸliÄŸi ile sÄ±nÄ±rlÄ± */
     padding: 20px;
-    /* Ä°Ã§erik kenar boÅŸluÄŸu */
     overflow: hidden;
-    /* TaÅŸan elemanlarÄ± gizler */
     align-items: left;
 }
 
@@ -114,25 +99,16 @@ ul {
 
 .cata-flow img {
     width: 100%;
-    /* Resim, kutucuÄŸa tam oturacak ÅŸekilde ayarlanÄ±r */
-    /* Resmin yÃ¼ksekliÄŸini %70 olarak ayarlÄ±yoruz */
     border-top-left-radius: 8px;
-    /* Ãœst sol kÃ¶ÅŸe yuvarlatÄ±lÄ±r */
     border-top-right-radius: 8px;
-    /* Ãœst saÄŸ kÃ¶ÅŸe yuvarlatÄ±lÄ±r */
     object-fit: cover;
-    /* Resmin orantÄ±lÄ± ÅŸekilde kÄ±rpÄ±lmasÄ±nÄ± saÄŸlar */
     
 }
 
 
 
-/* Movie card (kutucuk) */
 .cata-tab {
     width: 395px;
-    /* Her kutucuÄŸun geniÅŸliÄŸini 395px yapÄ±yoruz */
-    /* height: 574px; */
-    /* Her kutucuÄŸun yÃ¼ksekliÄŸini 574px yapÄ±yoruz */
     background-color: transparent;
     /* Arka plan rengi */
     border-radius: 8px;
@@ -383,7 +359,7 @@ ul {
 }
 
 /* Responsive TasarÄ±m - Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
     .search-box {
         width: 100%;
         max-width: 100%;

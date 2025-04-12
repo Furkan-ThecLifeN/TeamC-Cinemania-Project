@@ -1,4 +1,10 @@
-
+ul {
+  margin: 0;
+  padding: 0;
+}
+footer{
+  margin-top: 50px;
+}
 
 .dropdown-films {
   box-sizing: border-box;
@@ -59,17 +65,14 @@
   flex-direction: column;
   text-align: center;
   color: rgba(255, 255, 255, 1);
+ 
 }
 #empty-message {
   width: 100%;
-  height: 100%;
-  margin: 10% 40%;
   display: flex;
   align-items: center;
   text-align: center;
-  flex-direction: column;
-  font-weight: 400;
-  font-size: 32px;
+  flex-direction: column; 
 }
 
 .filmCard {
@@ -92,7 +95,8 @@
   background: var(--gradient-1);
   cursor: pointer;
   margin-top: 10px;
-  display: block;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -103,15 +107,13 @@
   gap: 2%;
 }
 
-
 .filmCard {
-
 }
 .movieCard {
   list-style-type: none;
   margin: 2%;
   border-radius: 5px;
-  border-radius: 8px;
+
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 63.48%,
@@ -119,32 +121,34 @@
   );
 }
 
-
 .movie-image {
+  overflow: hidden;
   width: 100%;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 1);
 }
 
-.movieCard p {
+.movieCard .left-info {
   word-wrap: break-word;
   font-size: 12px;
   line-height: 1.8;
   color: rgba(183, 183, 183, 1);
 }
+.card-down{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+}
+.stars{
+  color: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
 
-
-.about {
-  overflow: hidden;
-  display: -webkit-box;
 }
 
 .markup {
   width: 438px;
-  height: 104px;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 2.5;
+  font-size: 20px;
+  line-height: 1.5;
 }
 
 /* Responsive design */
@@ -166,8 +170,6 @@
     line-height: 1.6;
     font-weight: 400;
   }
-  
- 
 
   .filmCard {
     background: linear-gradient(
@@ -182,15 +184,13 @@
     width: 158px;
     height: 52px;
     padding: 0.75em 1.5em;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1;
   }
 
   .movieCard {
     width: 100%;
     max-width: 100%;
-    border-radius: 5px;
   }
 
   .movieCard p {
@@ -199,40 +199,25 @@
     line-height: 1.4;
     font-weight: 500;
   }
-  .about {
-    overflow: hidden;
-    display: -webkit-box;
-  }
 
   .empty-message {
-   width: 280px;
+    width: 280px;
   }
-  .markup { 
-    
+  .markup {
     height: 120px;
     font-weight: 400;
     font-size: 20px;
     line-height: 1.6em;
   }
 
-  .add-remove-btn {
-    width: 140px;
-    height: 38px;
-    border-radius: 74px;
-    cursor: pointer;
-
-    gap: 10px;
-    padding: 12px 24px;
-  }
+ 
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .dropdown-films {
-    width: 260px;
-    height: 48px;
+   
   }
   .film-genres {
-    width: 260px;
   }
 
   .film-genres p {
@@ -245,7 +230,6 @@
     font-weight: 400;
     line-height: 1.6;
   }
-  
 
   .filmCard {
     background: linear-gradient(
@@ -255,20 +239,18 @@
     );
     width: 100%;
   }
-  #empty-message{
-    gap:20px;
+  #empty-message {
+    gap: 20px;
+    width: 280px;
+    
   }
-
+  .markup {
+   
+  }
   .searchBtn {
   }
 
   .movieCard {
-    width: 395px;
-    height:auto;
-
-    
-
-
   }
 
   .movie {
@@ -277,15 +259,7 @@
     width: 100%;
   }
   .movieCard p {
-
   }
- 
-    #empty-message {
-      width: 280px;
-    }
-    .markup {
-    }
 
-    .add-remove-btn {
-    }
-  }
+  
+}
