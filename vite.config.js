@@ -7,8 +7,8 @@ import SortCss from 'postcss-sort-media-queries';
 export default defineConfig(({ command }) => {
   return {
     server: {
-    host: '0.0.0.0'
-  },
+      host: '0.0.0.0',
+    },
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
@@ -39,6 +39,8 @@ export default defineConfig(({ command }) => {
       },
       outDir: '../dist',
       emptyOutDir: true,
+      // GitHub Pages için base ayarını ekleyin
+      base: '/<repository-name>/', // GitHub repo adınızı buraya ekleyin
     },
     plugins: [
       injectHTML(),
