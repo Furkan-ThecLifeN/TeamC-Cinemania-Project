@@ -61,50 +61,80 @@ function createStarRating(rating) {
 }
 
 async function loadTrendingMovies() {
-  const movies = await fetchWeeklyTrendingMovies();
-  if (!movies || movies.length === 0) return;
+  try {
+    const movies = await fetchWeeklyTrendingMovies();
+    if (!movies || movies.length === 0) {
+      console.error('Film verileri alınamadı veya boş dizi döndü');
+      return;
+    }
 
-  const moviesContainer = document.querySelector('.weekly-movies-container');
-  moviesContainer.innerHTML = '';
+    const moviesContainer = document.querySelector('.weekly-movies-container');
+    if (!moviesContainer) {
+      console.error('.weekly-movies-container elementi bulunamadı');
+      return;
+    }
+    
+    moviesContainer.innerHTML = '';
 
-  const screenWidth = window.innerWidth;
-  let numberOfMovies = 3;
-  if (screenWidth <= 768) {
-    numberOfMovies = 1;
-  }
+    const screenWidth = window.innerWidth;
+    let numberOfMovies = 3;
+    if (screenWidth <= 768) {
+      numberOfMovies = 1;
+    }
 
-  const limitedMovies = movies.slice(0, numberOfMovies);
+    const limitedMovies = movies.slice(0, numberOfMovies);
 
-  limitedMovies.forEach(movie => {
-    const movieElement = document.createElement('div');
-    movieElement.classList.add('weekly-trend-movie');
+    limitedMovies.forEach(movie => {
+      const movieElement = document.createElement('div');
+      movieElement.classList.add('weekly-trend-movie');
+      movieElement.dataset.movieid = movie.id;
 
-    const genreNames = getGenreNames(movie.genre_ids);
+      const genreNames = getGenreNames(movie.genre_ids);
 
-    movieElement.innerHTML = `
-      <div class="title">
-        <h3>${movie.title}</h3>
-        <div class="movie-about">
-          <div class="movie-title">
-            <p>${genreNames}</p>
-            <span> | </span>
-            <span>${movie.release_date}</span>
+      movieElement.innerHTML = `
+        <div class="title">
+          <h3>${movie.title}</h3>
+          <div class="movie-about">
+            <div class="movie-title">
+              <p>${genreNames}</p>
+              <span> | </span>
+              <span>${movie.release_date}</span>
+            </div>
           </div>
-
+          <div class="star-bar">${createStarRating(movie.vote_average)}</div>
         </div>
-        <div class="star-bar">${createStarRating(movie.vote_average)}</div>
-      </div>
-    `;
+      `;
 
-    movieElement.style.background = `linear-gradient(to bottom, #00000000 0%, #000000 100%), url('https://image.tmdb.org/t/p/w500${movie.poster_path}')`;
-    movieElement.style.backgroundSize = 'cover';
-    movieElement.style.backgroundPosition = 'center';
-    movieElement.style.backgroundRepeat = 'no-repeat';
+      movieElement.style.background = `linear-gradient(to bottom, #00000000 0%, #000000 100%), url('https://image.tmdb.org/t/p/w500${movie.poster_path}')`;
+      movieElement.style.backgroundSize = 'cover';
+      movieElement.style.backgroundPosition = 'center';
+      movieElement.style.backgroundRepeat = 'no-repeat';
+      
+      // AFİŞLERE TIKLANDIĞINDA MODAL AÇMAK İÇİN OLAY DİNLEYİCİSİ
+      movieElement.addEventListener('click', () => {
+        console.log('Film afiş tıklaması - Film ID:', movie.id);
+        
+        // Film detay modalı varsa aç
+        if (window.movieModal && typeof window.movieModal.show === 'function') {
+          window.movieModal.show(movie.id);
+        } else {
+          console.warn('movieModal.show fonksiyonu bulunamadı.');
+        }
+      });
 
-    moviesContainer.appendChild(movieElement);
-  });
+      moviesContainer.appendChild(movieElement);
+    });
+    
+    console.log(`${limitedMovies.length} adet film başarıyla yüklendi`);
+  } catch (error) {
+    console.error('Film yüklenirken hata oluştu:', error);
+  }
 }
 
-window.addEventListener('resize', loadTrendingMovies);
+// Sayfa yüklendiğinde çalıştır
+document.addEventListener('DOMContentLoaded', () => {
+  loadTrendingMovies();
+});
 
-loadTrendingMovies();
+// Ekran boyutu değiştiğinde yeniden yükle
+window.addEventListener('resize', loadTrendingMovies);

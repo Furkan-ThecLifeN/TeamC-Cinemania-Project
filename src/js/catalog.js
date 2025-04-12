@@ -147,57 +147,80 @@ function initCatalog() {
   }
 
   async function loadMovies() {
-    const data = await fetchMovies(currentPage);
-    const movies = data.results;
-    const totalPages = data.total_pages;
-    catalogList.innerHTML = "";
+    try {
+      const data = await fetchMovies(currentPage);
+      const movies = data.results;
+      const totalPages = data.total_pages;
+      catalogList.innerHTML = "";
 
-    function addToLibrary(movie) {
-      let movieLibrary = JSON.parse(localStorage.getItem("movieLibrary")) || [];
-      if (!movieLibrary.some(item => item.id === movie.id)) {
-        movieLibrary.push(movie);
-        localStorage.setItem("movieLibrary", JSON.stringify(movieLibrary));
-        alert(`${movie.title} başarıyla kütüphaneye eklendi!`);
-      } else {
-        alert(`${movie.title} zaten kütüphanenizde!`);
+      function addToLibrary(movie) {
+        let movieLibrary = JSON.parse(localStorage.getItem("movieLibrary")) || [];
+        if (!movieLibrary.some(item => item.id === movie.id)) {
+          movieLibrary.push(movie);
+          localStorage.setItem("movieLibrary", JSON.stringify(movieLibrary));
+          alert(`${movie.title} başarıyla kütüphaneye eklendi!`);
+        } else {
+          alert(`${movie.title} zaten kütüphanenizde!`);
+        }
       }
-    }
 
-    movies.forEach(movie => {
-      const year = movie.release_date ? movie.release_date.split("-")[0] : "Yıl yok";
-      const genres = movie.genre_ids.map(id => genreMap[id]).filter(Boolean).slice(0, 2).join(", ") || "Tür yok";
-      const rating = movie.vote_average.toFixed(1);
-      const starRating = Math.round(movie.vote_average / 2);
-      const stars = '★'.repeat(starRating) + '☆'.repeat(5 - starRating);
+      movies.forEach(movie => {
+        const year = movie.release_date ? movie.release_date.split("-")[0] : "Yıl yok";
+        const genres = movie.genre_ids.map(id => genreMap[id]).filter(Boolean).slice(0, 2).join(", ") || "Tür yok";
+        const rating = movie.vote_average.toFixed(1);
+        const starRating = Math.round(movie.vote_average / 2);
+        const stars = '★'.repeat(starRating) + '☆'.repeat(5 - starRating);
 
-      const li = document.createElement("li");
-      li.classList.add("cata-tab");
-      li.innerHTML = `
-        <div class="cata-flow">
-          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" />
-        </div>
-        <div class="cata-info">
-          <h3 class="cata-cd-title">${movie.title}</h3>
-          <div class="cata-cd-bottom">
-            <span class="left-info">${genres} | ${year}</span>
-            <span class="right-stars">${stars}</span>
+        const li = document.createElement("li");
+        li.classList.add("cata-tab");
+        li.innerHTML = `
+          <div class="cata-flow">
+            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" />
           </div>
-        </div>
-      `;
+          <div class="cata-info">
+            <h3 class="cata-cd-title">${movie.title}</h3>
+            <div class="cata-cd-bottom">
+              <span class="left-info">${genres} | ${year}</span>
+              <span class="right-stars">${stars}</span>
+            </div>
+          </div>
+        `;
 
-      li.addEventListener("click", () => showModal(movie.id));
-      catalogList.appendChild(li);
-    });
+        // Film afişine tıklandığında
+        li.addEventListener("click", () => {
+          const movieId = movie.id;
+          
+          // Önce window.movieModal.show() fonksiyonunu kontrol et
+          if (window.movieModal && typeof window.movieModal.show === 'function') {
+            console.log('Dışarıdan tanımlanan movie modal kullanılıyor:', movieId);
+            // Eğer varsa, dışarıdan tanımladığınız modalı kullan
+            window.movieModal.show(movieId);
+          } else {
+            console.log('Yerel showModal fonksiyonu kullanılıyor:', movieId);
+            // Yoksa, mevcut showModal fonksiyonunu kullan
+            showModal(movieId);
+          }
+        });
+        
+        catalogList.appendChild(li);
+      });
 
-    loadPagination(totalPages);
+      loadPagination(totalPages);
+    } catch (error) {
+      console.error("Filmler yüklenirken hata oluştu:", error);
+    }
   }
 
   async function showModal(movieId) {
-    const movie = await fetchMovieDetails(movieId);
-    document.getElementById("modalImage").src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-    document.getElementById("modalTitle").textContent = movie.title;
-    document.getElementById("modalDescription").textContent = movie.overview;
-    movieModal.style.display = "block";
+    try {
+      const movie = await fetchMovieDetails(movieId);
+      document.getElementById("modalImage").src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      document.getElementById("modalTitle").textContent = movie.title;
+      document.getElementById("modalDescription").textContent = movie.overview;
+      movieModal.style.display = "block";
+    } catch (error) {
+      console.error("Film detayları gösterilirken hata oluştu:", error);
+    }
   }
 
   closeModal?.addEventListener("click", function () {
@@ -212,14 +235,7 @@ function initCatalog() {
     loadMovies(); // Filmleri yükler
   });
 
-
-  searchForm?.addEventListener("submit", function (e) {
-    e.preventDefault();
-    currentQuery = searchInput.value.trim();
-    selectedYear = yearSelect.value;
-    currentPage = 1;
-    loadMovies();
-  });
+  // İkinci submit event listener'ı kaldırıldı (tekrar vardı)
 
   loadMovies();
 }

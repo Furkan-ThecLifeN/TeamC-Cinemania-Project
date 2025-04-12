@@ -105,6 +105,8 @@ footer{
   display: flex;
   flex-direction: column;
   gap: 2%;
+  justify-content: center;
+  align-items: center;
 }
 
 .filmCard {
@@ -241,7 +243,6 @@ footer{
   }
   #empty-message {
     gap: 20px;
-    width: 280px;
     
   }
   .markup {

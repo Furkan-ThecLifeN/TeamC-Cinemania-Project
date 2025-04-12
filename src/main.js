@@ -1,10 +1,10 @@
+import './js/pop-up-movie-card.js';
+import './js/pop-up-trailer-card.js';
 import { renderHeroSection } from './js/hero.js';
 import { renderUpcomingSection } from './js/upcoming-this-month.js';
 import './js/header.js';
 import './js/weekly-trends.js';
 import './js/footer.js';
-import './js/pop-up-movie-card.js';
-import './js/pop-up-trailer-card.js';
 import { initializeLibrary } from './js/favorite-movies';
 renderUpcomingSection();
 
