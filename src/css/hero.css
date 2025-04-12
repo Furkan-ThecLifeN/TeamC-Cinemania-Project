@@ -1,181 +1,181 @@
 /* hero css */
 
 .hero-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  padding: 2rem 1.5rem;
-  width: 100%;
-  flex-shrink: 0;
-}
-
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-}
-
-/* Başlık */
-.hero-title {
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-.hero-rating {
-  display: flex;
-  gap: 0.2rem;
-  font-size: 1.4rem;
-  line-height: 1;
-}
-
-.star {
-  font-family: sans-serif;
-  position: relative;
-  display: inline-block;
-}
-
-.star.full,
-.star.half::before {
-  background: linear-gradient(to right, #f84119, #f89f19 68%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-}
-
-.star.empty {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); /* gri boş yıldız çerçevesi */
-}
-
-.star.half {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-}
-
-.star.half::before {
-  content: '★';
-  position: absolute;
-  left: 0;
-  width: 50%;
-  overflow: hidden;
-}
-
-/* Açıklama */
-.hero-overview {
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  line-height: 1.5;
-}
-
-/* Butonlar */
-.hero-buttons {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  gap: 0.8rem;
-}
-
-.hero-button {
-  padding: 0.6rem 1.2rem;
-  background: var(--gradient-2);
-  border: none;
-  border-radius: 30px;
-  color: black;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.hero-button:hover {
-  background: white;
-  color: #f87719;
-}
-
-/* İkinci buton beyaz stil */
-.hero-button:nth-child(2) {
-  background: transparent;
-  border: 2px solid white;
-  color: white;
-}
-
-.hero-button:nth-child(2):hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ------------------------- */
-/* Responsive Kırılma Noktaları */
-/* ------------------------- */
-
-/* Mobil: 375px - 767px */
-@media (max-width: 767px) {
-  .hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 2rem 1.5rem;
     width: 100%;
-    padding: 2rem 1rem;
+    flex-shrink: 0;
   }
-
+  
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+  }
+  
+  /* Başlık */
   .hero-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
   }
-
+  
+  .hero-rating {
+    display: flex;
+    gap: 0.2rem;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  
+  .star {
+    font-family: sans-serif;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .star.full,
+  .star.half::before {
+    background: linear-gradient(to right, #f84119, #f89f19 68%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  
+  .star.empty {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); /* gri boş yıldız çerçevesi */
+  }
+  
+  .star.half {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  }
+  
+  .star.half::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+  }
+  
+  /* Açıklama */
   .hero-overview {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    line-height: 1.5;
   }
-
+  
+  /* Butonlar */
   .hero-buttons {
+    margin-top: 1.5rem;
+    display: flex;
     flex-direction: row;
-    align-items: stretch;
     flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.8rem;
   }
-
+  
   .hero-button {
-    width: 30%;
-    text-align: center;
+    padding: 0.6rem 1.2rem;
+    background: var(--gradient-2);
+    border: none;
+    border-radius: 30px;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
   }
-}
-
-/* Tablet: 768px - 1279px */
-@media (min-width: 768px) and (max-width: 1279px) {
-  .hero-section {
-    padding: 3rem 2rem;
+  
+  .hero-button:hover {
+    background: white;
+    color: #f87719;
   }
-
-  .hero-title {
-    font-size: 2.2rem;
+  
+  /* İkinci buton beyaz stil */
+  .hero-button:nth-child(2) {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
   }
-
-  .hero-overview {
-    font-size: 1rem;
+  
+  .hero-button:nth-child(2):hover {
+    background: rgba(255, 255, 255, 0.1);
   }
-
-  .hero-buttons {
-    flex-direction: row;
+  
+  /* ------------------------- */
+  /* Responsive Kırılma Noktaları */
+  /* ------------------------- */
+  
+  /* Mobil: 375px - 767px */
+  @media (max-width: 767px) {
+    .hero-section {
+      width: 100%;
+      padding: 2rem 1rem;
+    }
+  
+    .hero-title {
+      font-size: 1.8rem;
+    }
+  
+    .hero-overview {
+      font-size: 0.9rem;
+    }
+  
+    .hero-buttons {
+      flex-direction: row;
+      align-items: stretch;
+      flex-wrap: nowrap;
+    }
+  
+    .hero-button {
+      width: 30%;
+      text-align: center;
+    }
   }
-
-  .hero-button {
-    width: auto;
+  
+  /* Tablet: 768px - 1279px */
+  @media (min-width: 768px) and (max-width: 1279px) {
+    .hero-section {
+      padding: 3rem 2rem;
+    }
+  
+    .hero-title {
+      font-size: 2.2rem;
+    }
+  
+    .hero-overview {
+      font-size: 1rem;
+    }
+  
+    .hero-buttons {
+      flex-direction: row;
+    }
+  
+    .hero-button {
+      width: auto;
+    }
   }
-}
-
-/* Masaüstü: 1280px ve üstü */
-@media (min-width: 1280px) {
-  .hero-section {
-    padding: 4rem;
-    min-height: 80vh;
+  
+  /* Masaüstü: 1280px ve üstü */
+  @media (min-width: 1280px) {
+    .hero-section {
+      padding: 4rem;
+      min-height: 80vh;
+    }
+  
+    .hero-title {
+      font-size: 2.8rem;
+    }
+  
+    .hero-overview {
+      font-size: 1.1rem;
+    }
   }
-
-  .hero-title {
-    font-size: 2.8rem;
-  }
-
-  .hero-overview {
-    font-size: 1.1rem;
-  }
-}
