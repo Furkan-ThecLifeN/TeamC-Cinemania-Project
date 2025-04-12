@@ -1,9 +1,25 @@
 // favorite.js
 export const APIKey = '0f552bbb3a7946c71382d336324ac39a';
 export const genreMap = {
-  28: 'Action',
-  12: 'Adventure',
-  /* other genres */
+  28: 'Aksiyon',
+  12: 'Macera',
+  16: 'Animasyon',
+  35: 'Komedi',
+  80: 'Suç',
+  99: 'Belgesel',
+  18: 'Dram',
+  10751: 'Aile',
+  14: 'Fantastik',
+  36: 'Tarih',
+  27: 'Korku',
+  10402: 'Müzik',
+  9648: 'Gizem',
+  10749: 'Romantik',
+  878: 'Bilim Kurgu',
+  10770: 'TV Filmi',
+  53: 'Gerilim',
+  10752: 'Savaş',
+  37: 'Western',
 };
 let page = 1;
 
@@ -74,6 +90,8 @@ export function displayMovies(movies) {
   movies.forEach(movie => {
     const movieCard = document.createElement('li');
     const filmCard = document.createElement('div');
+    const starRating = Math.round(movie.vote_average / 2);
+    const stars = '★'.repeat(starRating) + '☆'.repeat(5 - starRating);
     filmCard.innerHTML = `
       <a href="https://image.tmdb.org/t/p/original/${
         movie.poster_path
@@ -83,14 +101,12 @@ export function displayMovies(movies) {
         }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/>
       </a>
       <h3>${movie.original_title}</h3>
-      <p class="popularity">Popularity ${movie.popularity}</p>
-      <p class="genre">${movie.genre_ids.map(id => genreMap[id]).join(',')}|${
+      <div class="card-down"><span class="left-info">${movie.genre_ids
+        .map(id => genreMap[id])
+        .join(',')} | ${
       movie.release_date ? movie.release_date.split('-')[0] : 'N/A'
-    }</p>
-      <button class="add-remote-btn" data-id="${movie.id}">
-        ${isInLibrary(movie.id) ? 'Remove from Library' : 'Add to Library'}
-      </button>
-    `;
+}</span><span class="stars">${stars}</span>
+      </div>`;
     movieCard.classList.add('movieCard');
     filmCard.classList.add('filmCard');
     movieCard.appendChild(filmCard);
@@ -124,11 +140,6 @@ function showEmptyLibraryMessage() {
 function isInLibrary(id) {
   const library = JSON.parse(localStorage.getItem('library')) || [];
   return library.some(movie => movie.id === id);
-}
-
-function addToLibrary(id) {
-  // Implement adding to library
-  // You'll need to fetch the movie details by ID first
 }
 
 function removeFromLibrary(id) {

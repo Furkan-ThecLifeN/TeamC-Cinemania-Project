@@ -1,57 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family{}=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-:root {
-  /* Colors */
-  --primary-color: #ffffff;
-  --secondary-color: #111111;
-  --text-color-01: #f8f8f8;
-  --text-color-02: #b7b7b7;
-  --color-1: #f87719;
-  --color-2: #595959;
-  --color-3: #282828;
-
-  /* Gradyanlar */
-  --gradient-1: linear-gradient(to right, #ffc226, #f84119);
-  --gradient-2: linear-gradient(to right, #f84119, #f89f19ad 68%);
-
-  /* Font */
-  --font-family: 'Roboto', sans-serif;
-
-  /* Interface */
-  --box-shadow: 0 0 25px rgba(255, 194, 38, 0.6),
-    0 0 50px rgba(248, 65, 25, 0.6);
-  --hover-scale: 1.05;
-}
-
-html,
-body {
-  overflow-x: hidden;
-}
-
-body {
-  font-family: var(--font-family);
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  margin: 0;
-  padding: 0;
-}
-
-p,
-span {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 ul {
   margin: 0;
   padding: 0;
@@ -116,14 +62,14 @@ ul {
   flex-direction: column;
   text-align: center;
   color: rgba(255, 255, 255, 1);
+ 
 }
 #empty-message {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   text-align: center;
-  flex-direction: column;
+  flex-direction: column; 
 }
 
 .filmCard {
@@ -159,37 +105,41 @@ ul {
 }
 
 .filmCard {
-  
 }
 .movieCard {
   list-style-type: none;
   margin: 2%;
   border-radius: 5px;
-  
+
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 63.48%,
     rgba(0, 0, 0, 0.9) 92.16%
   );
-  
-  
 }
 
 .movie-image {
   overflow: hidden;
   width: 100%;
   text-transform: uppercase;
-  
 }
 
-.movieCard p {
+.movieCard .left-info {
   word-wrap: break-word;
   font-size: 12px;
   line-height: 1.8;
   color: rgba(183, 183, 183, 1);
 }
+.card-down{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+}
+.stars{
+  color: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
 
-
+}
 
 .markup {
   width: 438px;
@@ -238,8 +188,6 @@ ul {
   .movieCard {
     width: 100%;
     max-width: 100%;
-   
-    
   }
 
   .movieCard p {
@@ -259,15 +207,7 @@ ul {
     line-height: 1.6em;
   }
 
-  .add-remove-btn {
-    width: 140px;
-    height: 38px;
-    border-radius: 74px;
-    cursor: pointer;
-
-    gap: 10px;
-    padding: 12px 24px;
-  }
+ 
 }
 
 @media (min-width: 1024px) {
@@ -300,8 +240,12 @@ ul {
   }
   #empty-message {
     gap: 20px;
+    width: 280px;
+    
   }
-
+  .markup {
+   
+  }
   .searchBtn {
   }
 
@@ -318,12 +262,5 @@ ul {
   .movieCard p {
   }
 
-  #empty-message {
-    width: 280px;
-  }
-  .markup {
-  }
-
-  .add-remove-btn {
-  }
+  
 }
