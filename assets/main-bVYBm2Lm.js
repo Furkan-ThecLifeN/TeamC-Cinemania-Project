@@ -89,4 +89,4 @@
     </p>
     <button type="button" class="searchBtn">Search Movie</button>
   `;e.innerHTML=t,setTimeout(()=>{const o=document.querySelector(".searchBtn");o&&o.addEventListener("click",()=>{A()})},0)}function ee(e){return(JSON.parse(localStorage.getItem("library"))||[]).some(o=>o.id===e)}function te(e){const o=(JSON.parse(localStorage.getItem("library"))||[]).filter(n=>n.id!==e);localStorage.setItem("library",JSON.stringify(o)),o.length===0?b():v(o)}window.refreshLibrary=()=>{const e=JSON.parse(localStorage.getItem("library"))||[];e.length===0?b():v(e)};k();S();document.addEventListener("DOMContentLoaded",()=>{document.getElementById("hero-section")&&S(),document.getElementById("film-list")&&C()});
-//# sourceMappingURL=main-DVR7gkfW.js.map
+//# sourceMappingURL=main-bVYBm2Lm.js.map
