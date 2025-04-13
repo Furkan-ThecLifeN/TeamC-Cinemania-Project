@@ -6,7 +6,7 @@ import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
   return {
-    base: './',
+    base: '/TeamC-Cinemania-Project/',
     server: {
       host: '0.0.0.0',
     },
