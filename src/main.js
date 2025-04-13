@@ -8,7 +8,7 @@ import './js/footer.js';
 import { initializeLibrary } from './js/favorite-movies';
 renderUpcomingSection();
 
-renderHeroSection();
+renderHeroSection();//
 
 
 export async function setup() {
@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('hero-section')) {
       renderHeroSection();
     }
-    
+
     // Initialize the movie library
     if (document.getElementById('film-list')) {
       initializeLibrary();
     }
   });
-  
+
 
 
 
