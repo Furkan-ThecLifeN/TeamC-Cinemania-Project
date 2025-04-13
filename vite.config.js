@@ -6,7 +6,7 @@ import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
   return {
-    base: '/TeamC-Cinemania-Project/', // 👈 en üste taşıdık
+    base: './',
     server: {
       host: '0.0.0.0',
     },
@@ -43,7 +43,7 @@ export default defineConfig(({ command }) => {
     },
     plugins: [
       injectHTML(),
-      FullReload(['./src/**/**.html']),
+      FullReload(['./src//.html']),
       SortCss({
         sort: 'mobile-first',
       }),
