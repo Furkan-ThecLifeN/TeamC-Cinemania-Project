@@ -15,6 +15,9 @@ export default defineConfig(({ command }) => {
     root: 'src',
     build: {
       sourcemap: true,
+      outDir: '../dist',
+      emptyOutDir: true,
+      base: '/TeamC-Cinemania-Project/', // GitHub repo adı
       rollupOptions: {
         input: glob.sync('./src/*.html'),
         output: {
@@ -37,10 +40,6 @@ export default defineConfig(({ command }) => {
           },
         },
       },
-      outDir: '../dist',
-      emptyOutDir: true,
-      // GitHub Pages için base ayarını ekleyin
-      base: '/<repository-name>/', // GitHub repo adınızı buraya ekleyin
     },
     plugins: [
       injectHTML(),

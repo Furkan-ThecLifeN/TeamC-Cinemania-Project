@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/project-test/",
-    "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
+    "build": "vite build",
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
@@ -16,7 +16,7 @@
     "postcss-sort-media-queries": "^5.2.0",
     "vite": "^5.4.6"
   },
-  "author": "Betül Topkan <betultopkann@gmail.com>",
+  "author": "burak altun <altunburak88@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "project-test": "file:",
