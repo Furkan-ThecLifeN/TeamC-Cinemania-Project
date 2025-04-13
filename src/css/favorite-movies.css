@@ -62,14 +62,13 @@ ul {
   flex-direction: column;
   text-align: center;
   color: rgba(255, 255, 255, 1);
- 
 }
 #empty-message {
   width: 100%;
   display: flex;
   align-items: center;
   text-align: center;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .filmCard {
@@ -93,12 +92,20 @@ ul {
   cursor: pointer;
   margin-top: 10px;
   display: flex;
+  border: transparent;
   flex-direction: column;
   justify-content: center;
+  transition: width 0.5s;
+}
+
+.searchBtn:hover {
+  width: 150px;
+  height: 50px;
 }
 
 .film-grid {
   width: 100%;
+  height:auto;
   display: flex;
   flex-direction: column;
   gap: 2%;
@@ -130,15 +137,18 @@ ul {
   line-height: 1.8;
   color: rgba(183, 183, 183, 1);
 }
-.card-down{
+.card-down {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 8px;
 }
-.stars{
-  color: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
-
+.stars {
+  color: linear-gradient(
+    141.22deg,
+    #f84119 9.4%,
+    rgba(248, 159, 25, 0.68) 91.91%
+  );
 }
 
 .markup {
@@ -147,7 +157,36 @@ ul {
   font-size: 20px;
   line-height: 1.5;
 }
+.pagination{
+  margin: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
 
+.pagination-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 92px;
+  border-color: transparent;
+  border:0px;
+  padding:0;
+  color:var(--primary-color);
+  font-size: 10px;
+  font-weight: 400;
+  background-color: transparent;
+  border: 1px solid grey;
+  margin:5px;
+}
+.pagination-btn:hover{
+  cursor: pointer;
+}
+
+.active-page{
+  background:linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  color: var(--primary-color);
+}
 /* Responsive design */
 @media screen and (min-width: 768px) {
   .dropdown-films {
@@ -161,7 +200,7 @@ ul {
   }
 
   .markup {
-    width: 584px;
+    width: 438px;
     height: 124px;
     font-size: 32px;
     line-height: 1.6;
@@ -197,17 +236,33 @@ ul {
     font-weight: 500;
   }
 
-  .empty-message {
-    width: 280px;
-  }
   .markup {
     height: 120px;
     font-weight: 400;
     font-size: 20px;
     line-height: 1.6em;
   }
-
- 
+  .pagination-btn{
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+  /* .modal-hidden{
+    display:none;
+    position: fixed;
+    z-index: 1000;
+    overflow: auto;
+  } */
+  .modal-content{
+    width: 80%;
+    border-radius:16px;
+    
+  }
+  #modal img{
+    max-width: 100%;
+    height:auto;
+    
+  }
 }
 
 @media (min-width: 1024px) {
@@ -239,12 +294,19 @@ ul {
     width: 100%;
   }
   #empty-message {
-    gap: 20px;
-    width: 280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
     
+    margin: 30% 0% 30% 0%;
   }
   .markup {
-   
+    font-size: 28px;
+    line-height: 1.8;
+    margin-bottom: 8%;
+    
   }
   .searchBtn {
   }
@@ -261,6 +323,10 @@ ul {
   }
   .movieCard p {
   }
-
+  .pagination-btn{
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
   
 }
