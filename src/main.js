@@ -6,6 +6,7 @@ import './js/header.js';
 import './js/weekly-trends.js';
 import './js/footer.js';
 import { initializeLibrary } from './js/favorite-movies';
+import './js/catalog.js'
 renderUpcomingSection();
 
 renderHeroSection();//
